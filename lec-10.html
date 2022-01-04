@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lecture 10 Double Integrals and Double Integrals Over Rectangles | MATH 119 Course Notes</title>
+  <meta name="description" content="Lecture 10 Double Integrals and Double Integrals Over Rectangles | MATH 119 Course Notes" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lecture 10 Double Integrals and Double Integrals Over Rectangles | MATH 119 Course Notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lecture 10 Double Integrals and Double Integrals Over Rectangles | MATH 119 Course Notes" />
+  
+  
+  
+
+<meta name="author" content="Amanda Garcia" />
+
+
+<meta name="date" content="2021-07-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lec-9.html"/>
+<link rel="next" href="lec-11.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About these notes</a></li>
+<li class="chapter" data-level="1" data-path="lec-1.html"><a href="lec-1.html"><i class="fa fa-check"></i><b>1</b> Multivariable Functions</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="lec-1.html"><a href="lec-1.html#learning-objectives"><i class="fa fa-check"></i><b>1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="lec-1.html"><a href="lec-1.html#scalar-fields"><i class="fa fa-check"></i><b>1.2</b> Scalar Fields</a></li>
+<li class="chapter" data-level="1.3" data-path="lec-1.html"><a href="lec-1.html#graphs-of-scalar-fields"><i class="fa fa-check"></i><b>1.3</b> Graphs of Scalar Fields</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lec-2.html"><a href="lec-2.html"><i class="fa fa-check"></i><b>2</b> Multivariate Limits</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="lec-2.html"><a href="lec-2.html#recap"><i class="fa fa-check"></i><b>2.1</b> Recap</a></li>
+<li class="chapter" data-level="2.2" data-path="lec-2.html"><a href="lec-2.html#learning-objectives-1"><i class="fa fa-check"></i><b>2.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.3" data-path="lec-2.html"><a href="lec-2.html#approaching-limit-points"><i class="fa fa-check"></i><b>2.3</b> Approaching Limit Points</a></li>
+<li class="chapter" data-level="2.4" data-path="lec-2.html"><a href="lec-2.html#does-the-limit-exist"><i class="fa fa-check"></i><b>2.4</b> Does the Limit Exist?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lec-3.html"><a href="lec-3.html"><i class="fa fa-check"></i><b>3</b> Partial Derivatives</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="lec-3.html"><a href="lec-3.html#recap-1"><i class="fa fa-check"></i><b>3.1</b> Recap</a></li>
+<li class="chapter" data-level="3.2" data-path="lec-3.html"><a href="lec-3.html#learning-objectives-2"><i class="fa fa-check"></i><b>3.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.3" data-path="lec-3.html"><a href="lec-3.html#first-order-partial-derivative"><i class="fa fa-check"></i><b>3.3</b> First Order Partial Derivative</a></li>
+<li class="chapter" data-level="3.4" data-path="lec-3.html"><a href="lec-3.html#higher-order-partial-derivatives"><i class="fa fa-check"></i><b>3.4</b> Higher Order Partial Derivatives</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lec-4.html"><a href="lec-4.html"><i class="fa fa-check"></i><b>4</b> Tangent Planes, Linear Approximation and Differentials</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="lec-4.html"><a href="lec-4.html#recap-2"><i class="fa fa-check"></i><b>4.1</b> Recap</a></li>
+<li class="chapter" data-level="4.2" data-path="lec-4.html"><a href="lec-4.html#learning-objectives-3"><i class="fa fa-check"></i><b>4.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.3" data-path="lec-4.html"><a href="lec-4.html#tangent-planes"><i class="fa fa-check"></i><b>4.3</b> Tangent Planes</a></li>
+<li class="chapter" data-level="4.4" data-path="lec-4.html"><a href="lec-4.html#linear-approximation"><i class="fa fa-check"></i><b>4.4</b> Linear Approximation</a></li>
+<li class="chapter" data-level="4.5" data-path="lec-4.html"><a href="lec-4.html#differentials"><i class="fa fa-check"></i><b>4.5</b> Differentials</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lec-5.html"><a href="lec-5.html"><i class="fa fa-check"></i><b>5</b> Parametric Curves</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="lec-5.html"><a href="lec-5.html#recap-3"><i class="fa fa-check"></i><b>5.1</b> Recap</a></li>
+<li class="chapter" data-level="5.2" data-path="lec-5.html"><a href="lec-5.html#learning-objectives-4"><i class="fa fa-check"></i><b>5.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.3" data-path="lec-5.html"><a href="lec-5.html#vector-functions"><i class="fa fa-check"></i><b>5.3</b> Vector Functions</a></li>
+<li class="chapter" data-level="5.4" data-path="lec-5.html"><a href="lec-5.html#parametrization-of-curves"><i class="fa fa-check"></i><b>5.4</b> Parametrization of Curves</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="lec-5.html"><a href="lec-5.html#circles"><i class="fa fa-check"></i><b>5.4.1</b> Circles</a></li>
+<li class="chapter" data-level="5.4.2" data-path="lec-5.html"><a href="lec-5.html#ellipses"><i class="fa fa-check"></i><b>5.4.2</b> Ellipses</a></li>
+<li class="chapter" data-level="5.4.3" data-path="lec-5.html"><a href="lec-5.html#lines"><i class="fa fa-check"></i><b>5.4.3</b> Lines</a></li>
+<li class="chapter" data-level="5.4.4" data-path="lec-5.html"><a href="lec-5.html#curves-of-the-form-yfx"><i class="fa fa-check"></i><b>5.4.4</b> Curves of the form <span class="math inline">\(y=f(x)\)</span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lec-6.html"><a href="lec-6.html"><i class="fa fa-check"></i><b>6</b> Chain rule for paths</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="lec-6.html"><a href="lec-6.html#recap-4"><i class="fa fa-check"></i><b>6.1</b> Recap</a></li>
+<li class="chapter" data-level="6.2" data-path="lec-6.html"><a href="lec-6.html#learning-objectives-5"><i class="fa fa-check"></i><b>6.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.3" data-path="lec-6.html"><a href="lec-6.html#chain-rule-for-paths"><i class="fa fa-check"></i><b>6.3</b> Chain Rule for Paths</a></li>
+<li class="chapter" data-level="6.4" data-path="lec-6.html"><a href="lec-6.html#generalized-chain-rule"><i class="fa fa-check"></i><b>6.4</b> Generalized Chain Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="lec-7.html"><a href="lec-7.html"><i class="fa fa-check"></i><b>7</b> Gradients and Directional Derivatives</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="lec-7.html"><a href="lec-7.html#recap-5"><i class="fa fa-check"></i><b>7.1</b> Recap</a></li>
+<li class="chapter" data-level="7.2" data-path="lec-7.html"><a href="lec-7.html#learning-objectives-6"><i class="fa fa-check"></i><b>7.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.3" data-path="lec-7.html"><a href="lec-7.html#the-gradient-vector"><i class="fa fa-check"></i><b>7.3</b> The Gradient Vector</a></li>
+<li class="chapter" data-level="7.4" data-path="lec-7.html"><a href="lec-7.html#directional-derivatives"><i class="fa fa-check"></i><b>7.4</b> Directional Derivatives</a></li>
+<li class="chapter" data-level="7.5" data-path="lec-7.html"><a href="lec-7.html#the-gradient-vector-and-directional-derivatives"><i class="fa fa-check"></i><b>7.5</b> The Gradient Vector and Directional Derivatives</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="lec-8.html"><a href="lec-8.html"><i class="fa fa-check"></i><b>8</b> Unconstrained Optimization</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="lec-8.html"><a href="lec-8.html#recap-6"><i class="fa fa-check"></i><b>8.1</b> Recap</a></li>
+<li class="chapter" data-level="8.2" data-path="lec-8.html"><a href="lec-8.html#learning-objectives-7"><i class="fa fa-check"></i><b>8.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.3" data-path="lec-8.html"><a href="lec-8.html#critical-points"><i class="fa fa-check"></i><b>8.3</b> Critical Points</a></li>
+<li class="chapter" data-level="8.4" data-path="lec-8.html"><a href="lec-8.html#the-second-derivative-test"><i class="fa fa-check"></i><b>8.4</b> The Second Derivative Test</a></li>
+<li class="chapter" data-level="8.5" data-path="lec-8.html"><a href="lec-8.html#local-extrema-and-level-curves"><i class="fa fa-check"></i><b>8.5</b> Local Extrema and Level Curves</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="lec-9.html"><a href="lec-9.html"><i class="fa fa-check"></i><b>9</b> Constrained Optimization</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="lec-9.html"><a href="lec-9.html#recap-7"><i class="fa fa-check"></i><b>9.1</b> Recap</a></li>
+<li class="chapter" data-level="9.2" data-path="lec-9.html"><a href="lec-9.html#learning-objectives-8"><i class="fa fa-check"></i><b>9.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.3" data-path="lec-9.html"><a href="lec-9.html#method-of-lagrange"><i class="fa fa-check"></i><b>9.3</b> Method of Lagrange</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="lec-10.html"><a href="lec-10.html"><i class="fa fa-check"></i><b>10</b> Double Integrals and Double Integrals Over Rectangles</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="lec-10.html"><a href="lec-10.html#recap-8"><i class="fa fa-check"></i><b>10.1</b> Recap</a></li>
+<li class="chapter" data-level="10.2" data-path="lec-10.html"><a href="lec-10.html#learning-objectives-9"><i class="fa fa-check"></i><b>10.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="10.3" data-path="lec-10.html"><a href="lec-10.html#partial-integration"><i class="fa fa-check"></i><b>10.3</b> Partial Integration</a></li>
+<li class="chapter" data-level="10.4" data-path="lec-10.html"><a href="lec-10.html#double-integrals"><i class="fa fa-check"></i><b>10.4</b> Double Integrals</a></li>
+<li class="chapter" data-level="10.5" data-path="lec-10.html"><a href="lec-10.html#double-integrals-over-rectangles"><i class="fa fa-check"></i><b>10.5</b> Double Integrals Over Rectangles</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="lec-11.html"><a href="lec-11.html"><i class="fa fa-check"></i><b>11</b> Double Integrals Over Non-Rectangular Domains</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="lec-11.html"><a href="lec-11.html#recap-9"><i class="fa fa-check"></i><b>11.1</b> Recap</a></li>
+<li class="chapter" data-level="11.2" data-path="lec-11.html"><a href="lec-11.html#learning-objectives-10"><i class="fa fa-check"></i><b>11.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="11.3" data-path="lec-11.html"><a href="lec-11.html#double-integrals-over-non-rectangular-domains"><i class="fa fa-check"></i><b>11.3</b> Double Integrals Over Non-Rectangular Domains</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="lec-11.html"><a href="lec-11.html#type-i-regions"><i class="fa fa-check"></i><b>11.3.1</b> Type I Regions</a></li>
+<li class="chapter" data-level="11.3.2" data-path="lec-11.html"><a href="lec-11.html#type-ii-regions"><i class="fa fa-check"></i><b>11.3.2</b> Type II Regions</a></li>
+<li class="chapter" data-level="11.3.3" data-path="lec-11.html"><a href="lec-11.html#type-iii-regions"><i class="fa fa-check"></i><b>11.3.3</b> Type III Regions</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="lec-11.html"><a href="lec-11.html#exercises"><i class="fa fa-check"></i><b>11.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="lec-12.html"><a href="lec-12.html"><i class="fa fa-check"></i><b>12</b> Double Integrals in Polar Coordinates</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="lec-12.html"><a href="lec-12.html#recap-10"><i class="fa fa-check"></i><b>12.1</b> Recap</a></li>
+<li class="chapter" data-level="12.2" data-path="lec-12.html"><a href="lec-12.html#learning-objectives-11"><i class="fa fa-check"></i><b>12.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="12.3" data-path="lec-12.html"><a href="lec-12.html#polar-coordinates"><i class="fa fa-check"></i><b>12.3</b> Polar Coordinates</a></li>
+<li class="chapter" data-level="12.4" data-path="lec-12.html"><a href="lec-12.html#double-integrals-in-polar-coordinates"><i class="fa fa-check"></i><b>12.4</b> Double Integrals in Polar Coordinates</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="lec-13.html"><a href="lec-13.html"><i class="fa fa-check"></i><b>13</b> The Change of Variable Formula</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="lec-13.html"><a href="lec-13.html#recap-11"><i class="fa fa-check"></i><b>13.1</b> Recap</a></li>
+<li class="chapter" data-level="13.2" data-path="lec-13.html"><a href="lec-13.html#learning-objectives-12"><i class="fa fa-check"></i><b>13.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="13.3" data-path="lec-13.html"><a href="lec-13.html#transformations"><i class="fa fa-check"></i><b>13.3</b> Transformations</a></li>
+<li class="chapter" data-level="13.4" data-path="lec-13.html"><a href="lec-13.html#the-change-of-variables-formula"><i class="fa fa-check"></i><b>13.4</b> The Change of Variables Formula</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="lec-14.html"><a href="lec-14.html"><i class="fa fa-check"></i><b>14</b> Applications of Multiple Integrals</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="lec-14.html"><a href="lec-14.html#recap-12"><i class="fa fa-check"></i><b>14.1</b> Recap</a></li>
+<li class="chapter" data-level="14.2" data-path="lec-14.html"><a href="lec-14.html#learning-objectives-13"><i class="fa fa-check"></i><b>14.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="14.3" data-path="lec-14.html"><a href="lec-14.html#applications-of-double-integrals"><i class="fa fa-check"></i><b>14.3</b> Applications of Double Integrals</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="lec-14.html"><a href="lec-14.html#definite-integrals"><i class="fa fa-check"></i><b>14.3.1</b> Definite Integrals</a></li>
+<li class="chapter" data-level="14.3.2" data-path="lec-14.html"><a href="lec-14.html#integrals-with-no-integrand"><i class="fa fa-check"></i><b>14.3.2</b> Integrals with no Integrand</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="lec-14.html"><a href="lec-14.html#applications-of-triple-integrals"><i class="fa fa-check"></i><b>14.4</b> Applications of Triple Integrals</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="lec-15.html"><a href="lec-15.html"><i class="fa fa-check"></i><b>15</b> Triple Integrals</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="lec-15.html"><a href="lec-15.html#recap-13"><i class="fa fa-check"></i><b>15.1</b> Recap</a></li>
+<li class="chapter" data-level="15.2" data-path="lec-15.html"><a href="lec-15.html#learning-objectives-14"><i class="fa fa-check"></i><b>15.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="15.3" data-path="lec-15.html"><a href="lec-15.html#triple-integrals"><i class="fa fa-check"></i><b>15.3</b> Triple Integrals</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="lec-15.html"><a href="lec-15.html#triple-integrals-over-rectangles"><i class="fa fa-check"></i><b>15.3.1</b> Triple Integrals over Rectangles</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="lec-16.html"><a href="lec-16.html"><i class="fa fa-check"></i><b>16</b> Cylindrical Coordinates</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="lec-16.html"><a href="lec-16.html#recap-14"><i class="fa fa-check"></i><b>16.1</b> Recap</a></li>
+<li class="chapter" data-level="16.2" data-path="lec-16.html"><a href="lec-16.html#learning-objectives-15"><i class="fa fa-check"></i><b>16.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="16.3" data-path="lec-16.html"><a href="lec-16.html#cylindrical-coordinates"><i class="fa fa-check"></i><b>16.3</b> Cylindrical Coordinates</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="lec-17.html"><a href="lec-17.html"><i class="fa fa-check"></i><b>17</b> Spherical Coordinates</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="lec-17.html"><a href="lec-17.html#recap-15"><i class="fa fa-check"></i><b>17.1</b> Recap</a></li>
+<li class="chapter" data-level="17.2" data-path="lec-17.html"><a href="lec-17.html#learning-objectives-16"><i class="fa fa-check"></i><b>17.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="17.3" data-path="lec-17.html"><a href="lec-17.html#spherical-coordinates"><i class="fa fa-check"></i><b>17.3</b> Spherical Coordinates</a></li>
+<li class="chapter" data-level="17.4" data-path="lec-17.html"><a href="lec-17.html#spherical-vs-cylindrical-coordinates"><i class="fa fa-check"></i><b>17.4</b> Spherical vs Cylindrical Coordinates</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="lec-18.html"><a href="lec-18.html"><i class="fa fa-check"></i><b>18</b> Newton’s Method</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="lec-18.html"><a href="lec-18.html#recap-16"><i class="fa fa-check"></i><b>18.1</b> Recap</a></li>
+<li class="chapter" data-level="18.2" data-path="lec-18.html"><a href="lec-18.html#learning-objectives-17"><i class="fa fa-check"></i><b>18.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="18.3" data-path="lec-18.html"><a href="lec-18.html#finding-roots-of-polynomials"><i class="fa fa-check"></i><b>18.3</b> Finding Roots of Polynomials</a></li>
+<li class="chapter" data-level="18.4" data-path="lec-18.html"><a href="lec-18.html#newtons-method"><i class="fa fa-check"></i><b>18.4</b> Newton’s Method</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="lec-19.html"><a href="lec-19.html"><i class="fa fa-check"></i><b>19</b> Interpolating Polynomials</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="lec-19.html"><a href="lec-19.html#recap-17"><i class="fa fa-check"></i><b>19.1</b> Recap</a></li>
+<li class="chapter" data-level="19.2" data-path="lec-19.html"><a href="lec-19.html#learning-objectives-18"><i class="fa fa-check"></i><b>19.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="19.3" data-path="lec-19.html"><a href="lec-19.html#polynomial-interpolation"><i class="fa fa-check"></i><b>19.3</b> Polynomial Interpolation</a>
+<ul>
+<li class="chapter" data-level="19.3.1" data-path="lec-19.html"><a href="lec-19.html#integer-nodes"><i class="fa fa-check"></i><b>19.3.1</b> Integer Nodes</a></li>
+<li class="chapter" data-level="19.3.2" data-path="lec-19.html"><a href="lec-19.html#non-integer-nodes"><i class="fa fa-check"></i><b>19.3.2</b> Non-Integer Nodes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="lec-20.html"><a href="lec-20.html"><i class="fa fa-check"></i><b>20</b> Taylor Polynomials</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="lec-20.html"><a href="lec-20.html#recap-18"><i class="fa fa-check"></i><b>20.1</b> Recap</a></li>
+<li class="chapter" data-level="20.2" data-path="lec-20.html"><a href="lec-20.html#learning-objectives-19"><i class="fa fa-check"></i><b>20.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="20.3" data-path="lec-20.html"><a href="lec-20.html#motivation"><i class="fa fa-check"></i><b>20.3</b> Motivation</a></li>
+<li class="chapter" data-level="20.4" data-path="lec-20.html"><a href="lec-20.html#taylor-polynomials"><i class="fa fa-check"></i><b>20.4</b> Taylor Polynomials</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="lec-21.html"><a href="lec-21.html"><i class="fa fa-check"></i><b>21</b> Taylor Polynomial Shortcuts</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="lec-21.html"><a href="lec-21.html#recap-19"><i class="fa fa-check"></i><b>21.1</b> Recap</a></li>
+<li class="chapter" data-level="21.2" data-path="lec-21.html"><a href="lec-21.html#learning-objectives-20"><i class="fa fa-check"></i><b>21.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="21.3" data-path="lec-21.html"><a href="lec-21.html#uniqueness-of-taylor-polynomials"><i class="fa fa-check"></i><b>21.3</b> Uniqueness of Taylor Polynomials</a></li>
+<li class="chapter" data-level="21.4" data-path="lec-21.html"><a href="lec-21.html#maclaurin-polynomials"><i class="fa fa-check"></i><b>21.4</b> Maclaurin polynomials</a></li>
+<li class="chapter" data-level="21.5" data-path="lec-21.html"><a href="lec-21.html#other-shortcuts"><i class="fa fa-check"></i><b>21.5</b> Other Shortcuts</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="lec-22.html"><a href="lec-22.html"><i class="fa fa-check"></i><b>22</b> Taylor’s Remainder Theorem</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="lec-22.html"><a href="lec-22.html#recap-20"><i class="fa fa-check"></i><b>22.1</b> Recap</a></li>
+<li class="chapter" data-level="22.2" data-path="lec-22.html"><a href="lec-22.html#learning-objectives-21"><i class="fa fa-check"></i><b>22.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="22.3" data-path="lec-22.html"><a href="lec-22.html#taylors-remainder-theorem"><i class="fa fa-check"></i><b>22.3</b> Taylor’s Remainder Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="lec-23.html"><a href="lec-23.html"><i class="fa fa-check"></i><b>23</b> Taylor’s Inequality</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="lec-23.html"><a href="lec-23.html#recap-21"><i class="fa fa-check"></i><b>23.1</b> Recap</a></li>
+<li class="chapter" data-level="23.2" data-path="lec-23.html"><a href="lec-23.html#learning-objectives-22"><i class="fa fa-check"></i><b>23.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="23.3" data-path="lec-23.html"><a href="lec-23.html#taylors-inequality"><i class="fa fa-check"></i><b>23.3</b> Taylor’s Inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="lec-24.html"><a href="lec-24.html"><i class="fa fa-check"></i><b>24</b> Approximation of Integrals using Taylor Polynomials</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="lec-24.html"><a href="lec-24.html#recap-22"><i class="fa fa-check"></i><b>24.1</b> Recap</a></li>
+<li class="chapter" data-level="24.2" data-path="lec-24.html"><a href="lec-24.html#learning-objectives-23"><i class="fa fa-check"></i><b>24.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="24.3" data-path="lec-24.html"><a href="lec-24.html#motivation-1"><i class="fa fa-check"></i><b>24.3</b> Motivation</a></li>
+<li class="chapter" data-level="24.4" data-path="lec-24.html"><a href="lec-24.html#approximating-integrals-using-polynomials"><i class="fa fa-check"></i><b>24.4</b> Approximating Integrals using Polynomials</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="lec-25.html"><a href="lec-25.html"><i class="fa fa-check"></i><b>25</b> Infinite Series</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="lec-25.html"><a href="lec-25.html#recap-23"><i class="fa fa-check"></i><b>25.1</b> Recap</a></li>
+<li class="chapter" data-level="25.2" data-path="lec-25.html"><a href="lec-25.html#learning-objectives-24"><i class="fa fa-check"></i><b>25.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="25.3" data-path="lec-25.html"><a href="lec-25.html#taylor-series"><i class="fa fa-check"></i><b>25.3</b> Taylor Series</a></li>
+<li class="chapter" data-level="25.4" data-path="lec-25.html"><a href="lec-25.html#infinite-series"><i class="fa fa-check"></i><b>25.4</b> Infinite Series</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="lec-26.html"><a href="lec-26.html"><i class="fa fa-check"></i><b>26</b> Convergence Tests Part 1</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="lec-26.html"><a href="lec-26.html#recap-24"><i class="fa fa-check"></i><b>26.1</b> Recap</a></li>
+<li class="chapter" data-level="26.2" data-path="lec-26.html"><a href="lec-26.html#learning-objectives-25"><i class="fa fa-check"></i><b>26.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="26.3" data-path="lec-26.html"><a href="lec-26.html#geometric-series"><i class="fa fa-check"></i><b>26.3</b> Geometric Series</a></li>
+<li class="chapter" data-level="26.4" data-path="lec-26.html"><a href="lec-26.html#the-nth-term-test"><i class="fa fa-check"></i><b>26.4</b> The <span class="math inline">\(n\)</span>th Term Test</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="lec-27.html"><a href="lec-27.html"><i class="fa fa-check"></i><b>27</b> Convergence Tests Part 2</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="lec-27.html"><a href="lec-27.html#recap-25"><i class="fa fa-check"></i><b>27.1</b> Recap</a></li>
+<li class="chapter" data-level="27.2" data-path="lec-27.html"><a href="lec-27.html#learning-objectives-26"><i class="fa fa-check"></i><b>27.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="27.3" data-path="lec-27.html"><a href="lec-27.html#the-integral-test"><i class="fa fa-check"></i><b>27.3</b> The Integral Test</a></li>
+<li class="chapter" data-level="27.4" data-path="lec-27.html"><a href="lec-27.html#the-p-series-test"><i class="fa fa-check"></i><b>27.4</b> The p-series Test</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="lec-28.html"><a href="lec-28.html"><i class="fa fa-check"></i><b>28</b> Convergence Tests Part 3</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="lec-28.html"><a href="lec-28.html#recap-26"><i class="fa fa-check"></i><b>28.1</b> Recap</a></li>
+<li class="chapter" data-level="28.2" data-path="lec-28.html"><a href="lec-28.html#learning-objectives-27"><i class="fa fa-check"></i><b>28.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="28.3" data-path="lec-28.html"><a href="lec-28.html#the-comparison-test"><i class="fa fa-check"></i><b>28.3</b> The Comparison Test</a></li>
+<li class="chapter" data-level="28.4" data-path="lec-28.html"><a href="lec-28.html#the-limit-comparison-test"><i class="fa fa-check"></i><b>28.4</b> The Limit Comparison Test</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="lec-29.html"><a href="lec-29.html"><i class="fa fa-check"></i><b>29</b> Convergence Tests Part 4</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="lec-29.html"><a href="lec-29.html#recap-27"><i class="fa fa-check"></i><b>29.1</b> Recap</a></li>
+<li class="chapter" data-level="29.2" data-path="lec-29.html"><a href="lec-29.html#learning-objectives-28"><i class="fa fa-check"></i><b>29.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="29.3" data-path="lec-29.html"><a href="lec-29.html#the-alternating-series-test"><i class="fa fa-check"></i><b>29.3</b> The Alternating Series Test</a></li>
+<li class="chapter" data-level="29.4" data-path="lec-29.html"><a href="lec-29.html#the-alternating-series-estimation-theorem"><i class="fa fa-check"></i><b>29.4</b> The Alternating Series Estimation Theorem</a></li>
+<li class="chapter" data-level="29.5" data-path="lec-29.html"><a href="lec-29.html#absolute-and-conditional-convergence"><i class="fa fa-check"></i><b>29.5</b> Absolute and Conditional Convergence</a></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="lec-30.html"><a href="lec-30.html"><i class="fa fa-check"></i><b>30</b> Convergence Tests Part 5</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="lec-30.html"><a href="lec-30.html#recap-28"><i class="fa fa-check"></i><b>30.1</b> Recap</a></li>
+<li class="chapter" data-level="30.2" data-path="lec-30.html"><a href="lec-30.html#learning-objectives-29"><i class="fa fa-check"></i><b>30.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="30.3" data-path="lec-30.html"><a href="lec-30.html#the-ratio-test"><i class="fa fa-check"></i><b>30.3</b> The Ratio Test</a></li>
+<li class="chapter" data-level="30.4" data-path="lec-30.html"><a href="lec-30.html#the-root-test"><i class="fa fa-check"></i><b>30.4</b> The Root Test</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="lec-31.html"><a href="lec-31.html"><i class="fa fa-check"></i><b>31</b> Power Series</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="lec-31.html"><a href="lec-31.html#recap-29"><i class="fa fa-check"></i><b>31.1</b> Recap</a></li>
+<li class="chapter" data-level="31.2" data-path="lec-31.html"><a href="lec-31.html#learning-objectives-30"><i class="fa fa-check"></i><b>31.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="31.3" data-path="lec-31.html"><a href="lec-31.html#power-series"><i class="fa fa-check"></i><b>31.3</b> Power Series</a></li>
+<li class="chapter" data-level="31.4" data-path="lec-31.html"><a href="lec-31.html#convergence-of-power-series"><i class="fa fa-check"></i><b>31.4</b> Convergence of Power Series</a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="lec-32.html"><a href="lec-32.html"><i class="fa fa-check"></i><b>32</b> Manipulating Power Series</a>
+<ul>
+<li class="chapter" data-level="32.1" data-path="lec-32.html"><a href="lec-32.html#recap-30"><i class="fa fa-check"></i><b>32.1</b> Recap</a></li>
+<li class="chapter" data-level="32.2" data-path="lec-32.html"><a href="lec-32.html#learning-objectives-31"><i class="fa fa-check"></i><b>32.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="32.3" data-path="lec-32.html"><a href="lec-32.html#motivation-2"><i class="fa fa-check"></i><b>32.3</b> Motivation</a></li>
+<li class="chapter" data-level="32.4" data-path="lec-32.html"><a href="lec-32.html#examples"><i class="fa fa-check"></i><b>32.4</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="33" data-path="lec-33.html"><a href="lec-33.html"><i class="fa fa-check"></i><b>33</b> Big-<span class="math inline">\(\mathcal{O}\)</span> Notation</a>
+<ul>
+<li class="chapter" data-level="33.1" data-path="lec-33.html"><a href="lec-33.html#recap-31"><i class="fa fa-check"></i><b>33.1</b> Recap</a></li>
+<li class="chapter" data-level="33.2" data-path="lec-33.html"><a href="lec-33.html#learning-objectives-32"><i class="fa fa-check"></i><b>33.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="33.3" data-path="lec-33.html"><a href="lec-33.html#big-mathcalo-notation"><i class="fa fa-check"></i><b>33.3</b> Big-<span class="math inline">\(\mathcal{O}\)</span> Notation</a></li>
+<li class="chapter" data-level="33.4" data-path="lec-33.html"><a href="lec-33.html#algebra-of-big-mathcalo-notation"><i class="fa fa-check"></i><b>33.4</b> Algebra of Big-<span class="math inline">\(\mathcal{O}\)</span> Notation</a></li>
+<li class="chapter" data-level="33.5" data-path="lec-33.html"><a href="lec-33.html#big-mathcalo-notation-and-taylor-series"><i class="fa fa-check"></i><b>33.5</b> Big-<span class="math inline">\(\mathcal{O}\)</span> Notation and Taylor Series</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MATH 119 Course Notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lec-10" class="section level1" number="10">
+<h1><span class="header-section-number">Lecture 10</span> Double Integrals and Double Integrals Over Rectangles</h1>
+<p>Text References: Course notes pp. 37-52 &amp; Rogawski 14.8, 15.1-15.2</p>
+<div id="recap-8" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Recap</h2>
+<p>Last time, learned how to apply the Method of Lagrange to find the extrema of a function <span class="math inline">\(f(x,y)\)</span> subject to a constraint <span class="math inline">\(g(x,y)=K\)</span>.</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-70" class="exercise"><strong>Exercise 10.1  </strong></span>Consider the level curves of a function <span class="math inline">\(f (x, y)\)</span> and the constraint curve <span class="math inline">\(g(x, y) = k\)</span> (in red). Estimate the maximum and minimum values of <span class="math inline">\(f\)</span> with constraint <span class="math inline">\(g(x, y) = k\)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
+<img src="images/lc-dashed-2.png" alt="Level curves of an unknown function that appear to form four concentric ellipses. The constraint curve is a horizontal ellipse." width="30%" />
+<p class="caption">
+Figure 10.1: Level curves of an unknown function and constraint curve <span class="math inline">\(g(x,y)=K\)</span>
+</p>
+</div>
+</div>
+<div class="solution">
+<p><span id="unlabeled-div-71" class="solution"><em>Solution</em>. </span>We check which level curves intersect with the constraint curve. We estimate that the maximum value is approximately <span class="math inline">\(24\)</span> (between <span class="math inline">\(20\)</span> and <span class="math inline">\(25\)</span>, but closer to <span class="math inline">\(25\)</span> and the minimum value is approximately <span class="math inline">\(2\)</span> (between <span class="math inline">\(0\)</span> and <span class="math inline">\(5\)</span>, around halfway in between).</p>
+</div>
+</div>
+<div id="learning-objectives-9" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Learning Objectives</h2>
+<ul>
+<li>Given a function of several variables, integrate it with respect to a chosen variable.</li>
+<li>Evaluate iterated integrals over rectangular domains</li>
+</ul>
+</div>
+<div id="partial-integration" class="section level2" number="10.3">
+<h2><span class="header-section-number">10.3</span> Partial Integration</h2>
+<p>In the past few weeks, we’ve been working on generalizing ideas from differential calculus; now, we’re going to focus on integral calculus for a little bit.</p>
+<p>Just like partial differentiation, we have a concept of <strong>partial integration</strong>: we can take the partial integral of a function of several variables by treating the variable of integration normally and any other variables as constants. The differential tells us which variable is the variable of integration.</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-72" class="exercise"><strong>Exercise 10.2  </strong></span>Calculate <span class="math inline">\(\displaystyle \int (2x+3y^2)dy\)</span>.</p>
+</div>
+<div class="solution">
+<p><span id="unlabeled-div-73" class="solution"><em>Solution</em>. </span>The differential is <span class="math inline">\(dy\)</span>, which means that <span class="math inline">\(y\)</span> is the variable of integration. Treating <span class="math inline">\(x\)</span> as a constant, we get
+<span class="math display">\[\displaystyle \int (2x+3y^2)dy  = 2xy + y^3 + g(x)\]</span></p>
+<p>Note that instead of a constant <span class="math inline">\(C\)</span>, we have a <em>function</em> <span class="math inline">\(g(x)\)</span>: since our variable of integration is <span class="math inline">\(y\)</span>, any function of <span class="math inline">\(x\)</span> will disappear when we take the partial derivative with respect to <span class="math inline">\(y\)</span>.</p>
+</div>
+<p>Partial integration can help us identify a function (up to a constant) if we know its partial derivatives.</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-74" class="exercise"><strong>Exercise 10.3  </strong></span>Find <span class="math inline">\(f(x,y)\)</span> up to a constant if <span class="math inline">\(f_{x}(x,y)=4x^3y^3+3y^2+1\)</span> and <span class="math inline">\(f_y = 3x^4y^2+6xy\)</span>.</p>
+</div>
+<div class="solution">
+<p><span id="unlabeled-div-75" class="solution"><em>Solution</em>. </span>Using partial integration, we have <span class="math display">\[f(x,y)=\displaystyle \int f_xdx = \int (4x^3y^3+3y^2+1) dx =x^4y^3+3xy^2+x+g(y)\]</span> and also <span class="math display">\[f(x,y)=\displaystyle \int f_ydy = \int (3x^4y^2+6x)y dy = x^4y^3+3xy^2+h(x)\]</span></p>
+<p>Putting it all together, we have <span class="math display">\[f(x,y)=x^4y^3+3xy^2+x+g(y) \quad \mbox{and} \quad f(x,y)=x^4y^3+3xy^2+h(x)\]</span></p>
+<p>Since the expressions are equal, this implies that <span class="math inline">\(x+g(y)=h(x)\)</span>; it must be that <span class="math inline">\(g(y)=C\)</span> for some constant <span class="math inline">\(C\)</span>. Therefore, <span class="math inline">\(f(x,y)=x^4y^3+3xy^2+x+C\)</span>.</p>
+</div>
+</div>
+<div id="double-integrals" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> Double Integrals</h2>
+<p>Until now, we’ve been doing a form of antidifferentiation; now, we’re going to work on defining double integrals.</p>
+<p>To start, we’ll assume that the domain of integration is rectangular, that is, <span class="math inline">\(a\leq x\leq b\)</span> and <span class="math inline">\(c\leq y\leq d\)</span>, and that <span class="math inline">\(f&gt;0\)</span> everywhere in this domain.</p>
+<p>We can partition the region along the <span class="math inline">\(x\)</span>-axis into <span class="math inline">\(m\)</span> intervals of length <span class="math inline">\(\Delta x=\frac{(b-a)}{m}\)</span>; likewise, we can partition the region along the <span class="math inline">\(y\)</span>-axis into <span class="math inline">\(n\)</span> intervals of length <span class="math inline">\(\Delta y = \frac{(d-c)}{n}\)</span>. We’ve now partitioned the domain into rectangles with area <span class="math inline">\(\Delta A=\Delta x\Delta y\)</span>.</p>
+<p>In each rectangle, we choose a point <span class="math inline">\((x_i^*, y_j^*)\)</span>. Then <span class="math inline">\(f(x_i^*, y_j^*)\Delta A\)</span> represents the volume below the surface <span class="math inline">\(z=f(x,y)\)</span> over the rectangle. Summing all of these volumes gives us an approximation of the volume below the surface over the domain. We also expect that as <span class="math inline">\(\Delta A\to 0\)</span>, the error in the approximation of the volume should approach zero. This motivates the following definition:</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-76" class="definition"><strong>Definition 10.1  </strong></span>The <strong>double integral</strong> of a continuous function <span class="math inline">\(f(x,y)\)</span> over a rectangular region <span class="math inline">\(R\in \mathbb{R}^2\)</span> is <span class="math display">\[\displaystyle \int_R f(x,y)dA =\lim_{m, n \to \infty}\sum_{i=1}^m\sum_{j=1}^nf(x_i^*, y_j^*)\Delta A\]</span></p>
+</div>
+<p>This <a href="https://www.geogebra.org/m/mcyzpeeh">interactive applet</a> gives some intuition for what’s happening in 3D space.</p>
+<iframe scrolling="no" title="14.1-volume-partitions" src="https://www.geogebra.org/material/iframe/id/kzufeays/width/737/height/520/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="737px" height="520px" style="border:0px;">
+</iframe>
+</div>
+<div id="double-integrals-over-rectangles" class="section level2" number="10.5">
+<h2><span class="header-section-number">10.5</span> Double Integrals Over Rectangles</h2>
+<p>Rectangles are particularly nice domains over which to integrate: we can evaluate such integrals by performing partial integration of one variable at a time. The intuition for this is that when we fix one of the variables, we are singling out the cross-section of <span class="math inline">\(z=f(x,y)\)</span> along that constant plane and calculating the area below this curve. Now, sweeping along the other variable, we give our cross-section slice some thickness and create a volume. A more detailed explanation of this can be found in the course notes.</p>
+<p>From this intuition, we get the following result: If <span class="math inline">\(R=[a,b]\times[c,d]\)</span>, then <span class="math display">\[\displaystyle \int_R f(x,y) dA=\int_c^d \int_a^b f(x,y) dx dy = \int_a^b \int_c^d f(x,y) dy dx\]</span></p>
+<p>Notice that for these types of integrals, the order of integration doesn’t matter! Unfortunately, this isn’t always the case; it’s one of the reasons we like integrating over rectangles so much. Given that the order of integration doesn’t matter, this gives us a bit of freedom in deciding which order of integration works best.</p>
+<p>Another nice property of integrals over rectangles is that if the integrand can be factored into a function of <span class="math inline">\(x\)</span> and a function of <span class="math inline">\(y\)</span>, then the entire integral can be factored into an integral in <span class="math inline">\(x\)</span> and an integral in <span class="math inline">\(y\)</span>. More formally, suppose that <span class="math inline">\(f(x,y)=g(x)h(y)\)</span>, then <span class="math display">\[\displaystyle \int_c^d\int_a^b f(x,y) dxdy = \displaystyle \int_c^d\int_a^b g(x)h(y) dxdy=\displaystyle \int_c^dh(y)dy\int_a^b g(x) dx\]</span></p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-77" class="exercise"><strong>Exercise 10.4  </strong></span>Evaluate <span class="math inline">\(\displaystyle \int_2^4 \int_1^9 ye^x dy dx\)</span>.</p>
+</div>
+<div class="solution">
+<p><span id="unlabeled-div-78" class="solution"><em>Solution</em>. </span>Note that we first integrate with respect to <span class="math inline">\(y\)</span> and the with respect to <span class="math inline">\(x\)</span>:
+<span class="math display">\[\begin{align*}
+\displaystyle \int_2^4 \int_1^9 ye^x dy dx &amp; = \int_2^4 \left ( \int_1^9 ye^x dy \right )dx\\
+&amp;= \int_2^4 \left (e^x\int_1^9 y dy\right ) dx\\
+&amp;= \int_2^4 \left ( \dfrac{e^xy^2}{2}\right |_{y=1}^9 dx\\
+&amp;= \int_2^4 40e^x dx\\
+&amp;= 40(e^4-e^2)
+\end{align*}\]</span></p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-79" class="exercise"><strong>Exercise 10.5  </strong></span>Evaluate <span class="math inline">\(\displaystyle \int_0^{1}\int_{-\pi}^{\pi}x\sin(xy)dx dy\)</span>.</p>
+</div>
+<div class="solution">
+<p><span id="unlabeled-div-80" class="solution"><em>Solution</em>. </span>We notice that in this case, it’s much, <em>much</em> simpler to integrate first with respect to <span class="math inline">\(y\)</span>, then with respect to <span class="math inline">\(x\)</span>:
+<span class="math display">\[\begin{align*}
+\displaystyle \int_0^1\int_{-\pi}^{\pi}x\sin(xy)dx dy &amp; = \displaystyle \int_{-\pi}^{\pi}\int_{0}^1x\sin(xy)dy dx\\
+&amp; = \displaystyle \int_{-\pi}^{\pi} \left (x \int_0^1 \sin(xy)dy \right)dx \\
+&amp; = \displaystyle \int_{-\pi}^{\pi}  \left  (\dfrac{-x\cos(xy)}{x} \right|_{y=0}^1 dx \\
+&amp; = \displaystyle \int_{-\pi}^{\pi} -\cos(x)+\cos(0) dx \\
+&amp;= \left . -\sin(x) \right |_{x=-\pi}^{\pi}+ \left. x\cos(0) \right|_{x=-\pi}^{\pi}\\
+&amp;= 2\pi
+\end{align*}\]</span></p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lec-9.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lec-11.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/10.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["MATH119-course-notes.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
