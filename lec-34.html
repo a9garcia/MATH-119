@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture 13 The Change of Variable Formula | MATH 119 Course Notes</title>
-  <meta name="description" content="Lecture 13 The Change of Variable Formula | MATH 119 Course Notes" />
+  <title>Lecture 34 Two variable Taylor Series | MATH 119 Course Notes</title>
+  <meta name="description" content="Lecture 34 Two variable Taylor Series | MATH 119 Course Notes" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture 13 The Change of Variable Formula | MATH 119 Course Notes" />
+  <meta property="og:title" content="Lecture 34 Two variable Taylor Series | MATH 119 Course Notes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture 13 The Change of Variable Formula | MATH 119 Course Notes" />
+  <meta name="twitter:title" content="Lecture 34 Two variable Taylor Series | MATH 119 Course Notes" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="lec-12.html"/>
-<link rel="next" href="lec-14.html"/>
+<link rel="prev" href="lec-33.html"/>
+
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -353,76 +353,32 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lec-13" class="section level1" number="13">
-<h1><span class="header-section-number">Lecture 13</span> The Change of Variable Formula</h1>
-<p>Text References: Course notes pp. 53-65 &amp; Rogawski 11.3, 15.4-15.6</p>
-<div id="recap-11" class="section level2" number="13.1">
-<h2><span class="header-section-number">13.1</span> Recap</h2>
-<p>Last time, we learned another technique for solving double integrals: changing to polar coordinates.</p>
+<div id="lec-34" class="section level1" number="34">
+<h1><span class="header-section-number">Lecture 34</span> Two variable Taylor Series</h1>
+<p>Text References: Course notes pp. 151-157 &amp; Rogawski N/A</p>
+<div id="recap-32" class="section level2" number="34.1">
+<h2><span class="header-section-number">34.1</span> Recap</h2>
+<p>Last time, we learned how to use Big-<span class="math inline">\(\mathcal{O}\)</span> notation to simplify our calculations of Taylor polynomials and limits.</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-95" class="exercise"><strong>Exercise 13.1  </strong></span>Transform the integral <span class="math inline">\(\displaystyle \int_{-3}^0\int_{-\sqrt{9-y^2}}^{\sqrt{9-y^2}} 1~dxdy\)</span> to polar coordinates (no need to solve the integral).</p>
+<p><span id="exr:unlabeled-div-263" class="exercise"><strong>Exercise 34.1  </strong></span>Given <span class="math inline">\(\sin(x)=x+\mathcal{O}(x^3)\)</span>, find <span class="math inline">\(\displaystyle \lim_{x\to 0}\frac{\sin(x)}{x}\)</span></p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-96" class="solution"><em>Solution</em>. </span>We are working with the inequalities <span class="math inline">\(-3\leq y\leq 0\)</span> and <span class="math inline">\(-\sqrt{9-y^2}\leq x\leq \sqrt{9-y^2}\)</span>. We can rewrite the second inequality as <span class="math inline">\(x^2=9-y^2 \implies x^2+y^2=9\)</span>, which describes a circle of radius <span class="math inline">\(3\)</span>. The additional conditions on <span class="math inline">\(y\)</span> mean that we are only considering the bottom half of the circle.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-28"></span>
-<img src="images/lec-13-recap.png" alt="Bottom half of a circle of radius 3." width="30%" />
-<p class="caption">
-Figure 13.1: Domain of integration
-</p>
-</div>
-<p>Thus, <span class="math inline">\(0\leq \rho \leq 3\)</span> and <span class="math inline">\(\pi\leq\phi\leq 2\pi\)</span>. Remembering the factor of <span class="math inline">\(\rho\)</span> in the integrand, we get <span class="math display">\[\int_{0}^3\int_{\pi}^{2\pi}\rho~d\rho d\phi\]</span></p>
+<p><span id="unlabeled-div-264" class="solution"><em>Solution</em>. </span><span class="math display">\[\begin{align*}
+\lim_{x\to 0}\frac{\sin(x)}{x} &amp;= \lim_{x\to 0}\frac{x+\mathcal{O}(x^3)}{x}\\
+&amp;= \lim_{x\to 0} 1+\mathcal{O}(x^2)\\
+&amp;= 1+0 =1
+\end{align*}\]</span></p>
 </div>
 </div>
-<div id="learning-objectives-12" class="section level2" number="13.2">
-<h2><span class="header-section-number">13.2</span> Learning Objectives</h2>
+<div id="learning-objectives-33" class="section level2" number="34.2">
+<h2><span class="header-section-number">34.2</span> Learning Objectives</h2>
 <ul>
-<li>Evaluate integrals using the change of variables formula.</li>
+<li>Given a function of two variables, find its <span class="math inline">\(n\)</span>th order Taylor polynomial.</li>
 </ul>
 </div>
-<div id="transformations" class="section level2" number="13.3">
-<h2><span class="header-section-number">13.3</span> Transformations</h2>
-<p>Thinking back to our work with polar coordinates, we’ve seen that changing coordinates is in fact a <em>transformation</em> which maps the <span class="math inline">\(xy\)</span>-plane to the <span class="math inline">\(\rho\phi\)</span>-plane. This is the idea we’re going to try go generalize to help us solve integration problems: if the region of integration is not “nice,” we can apply a transformation to it and turn it into a “nice” region that’s easier to integrate over.</p>
-<p>Let’s think for a moment about which regions are particularly nice to integrate over: rectangles! Our goal in coming up with transformations will generally be to transform integrals over non-rectangular domains into integrals over rectangular domains (or, if that’s not so straightforward, into regions of Type I or Type II). As with polar coordinates, we will have to think carefully about what the new area element <span class="math inline">\(dA\)</span> should be.</p>
-<div class="exercise">
-<p><span id="exr:unlabeled-div-97" class="exercise"><strong>Exercise 13.2  </strong></span>Find a mapping which transforms the region <span class="math inline">\(R_{xy}\)</span> in the first quadrant bounded by the hyperbolae <span class="math inline">\(xy=1\)</span>, <span class="math inline">\(xy=3\)</span>, <span class="math inline">\(x^2-y^2=2\)</span>, <span class="math inline">\(x^2-y^2=4\)</span> into a square in the <span class="math inline">\(uv\)</span>-plane.</p>
-</div>
-<div class="solution">
-<p><span id="unlabeled-div-98" class="solution"><em>Solution</em>. </span>Take <span class="math inline">\(u(x,y)=xy\)</span> and <span class="math inline">\(v(x,y)=x^2-y^2\)</span>. The boundaries of the region will map to the horizontal lines <span class="math inline">\(u=1\)</span> and <span class="math inline">\(u=3\)</span> and to the vertical lines <span class="math inline">\(v=2\)</span> and <span class="math inline">\(v=4\)</span> in the <span class="math inline">\(uv\)</span>-plane.</p>
-</div>
-</div>
-<div id="the-change-of-variables-formula" class="section level2" number="13.4">
-<h2><span class="header-section-number">13.4</span> The Change of Variables Formula</h2>
-<p>Let’s dive into the main result.</p>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-99" class="theorem"><strong>Theorem 13.1  </strong></span>Suppose that the variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are related to the variables <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> by the equations <span class="math inline">\(x=x(u,v)\)</span>, <span class="math inline">\(y=y(u,v)\)</span>. Then, <span class="math display">\[\iint_{R_{xy}}f(x,y)~dxdy = \iint_{R_{uv}}f(x(u,v), y(u,v)) \left |\dfrac{\partial(x,y)}{\partial (u,v)}\right|~dudv\]</span>
-where <span class="math display">\[\dfrac{\partial(x,y)}{\partial (u,v)}=\det\begin{bmatrix}\frac{\partial x}{\partial u}&amp;\frac{\partial x}{\partial v}\\ \frac{\partial y}{\partial u}&amp; \frac{\partial y}{\partial v}\end{bmatrix}\]</span> This function is called the <strong>Jacobian</strong> of the transformation, and is also denoted by <span class="math inline">\(J\)</span>. Note that <span class="math inline">\(\left |\dfrac{\partial(x,y)}{\partial (u,v)}\right|\)</span> is the <em>absolute value</em> of the determinant of the matrix of partial derivatives.</p>
-</div>
-<p>When applying the change of variables formula, it’s important to keep a few things in mind:</p>
-<ul>
-<li>The transformation <span class="math inline">\((x,y)\to (u,v)\)</span> must be invertible on the domain of integration. In other words, we can’t have <span class="math inline">\(J=0\)</span> at any point on the interior of <span class="math inline">\(R_{uv}\)</span>; we don’t want to lose information by, for example, contracting a line to a point.</li>
-<li>The Jacobian can be understood as area scaling factor of a given transformation. That is, the Jacobian describes the extent to which the associated mapping increases or decreases areas.</li>
-<li>As we might expect, <span class="math inline">\(\dfrac{\partial(x,y)}{\partial(u,v)}=\dfrac{1}{\frac{\partial(u,v)}{\partial(x,y)}}\)</span></li>
-</ul>
-<div class="exercise">
-<p><span id="exr:unlabeled-div-100" class="exercise"><strong>Exercise 13.3  </strong></span>Evaluate <span class="math inline">\(\displaystyle \iint_R x dA\)</span> where <span class="math inline">\(R\)</span> is the region in the first and fourth quadrants bounded by the curves <span class="math inline">\(y+x^2=0\)</span>, <span class="math inline">\(y+x^2=1\)</span>, <span class="math inline">\(y-x^2=0\)</span>, and <span class="math inline">\(y-x^2=-1\)</span>.</p>
-</div>
-<div class="solution">
-<p><span id="unlabeled-div-101" class="solution"><em>Solution</em>. </span>We start by defining a map that converts this region into the unit square in the <span class="math inline">\(uv\)</span>-plane by setting <span class="math inline">\(u(x,y)=x+y^2\)</span> and <span class="math inline">\(v(x,y)=y-x^2\)</span>.</p>
-<p>Writing <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in terms of <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span>, we can sum <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> to find <span class="math inline">\(y=\frac{u+v}{2}\)</span>; and we can subtract <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> to find <span class="math inline">\(x=\sqrt{\frac{u-v}{2}}\)</span>. Note that we have <span class="math inline">\(0\leq u\leq 1\)</span> and <span class="math inline">\(0\leq v\leq 1\)</span>.</p>
-<p>Next, we calculate the Jacobian:
-<span class="math display">\[\dfrac{\partial(x,y)}{\partial (u,v)}=\det\begin{bmatrix}\frac{\partial x}{\partial u}&amp;\frac{\partial x}{\partial v}\\ \frac{\partial y}{\partial u}&amp; \frac{\partial y}{\partial v}\end{bmatrix} = \begin{bmatrix}\frac{1}{2\sqrt{2u-2v}}&amp; -\frac{1}{2\sqrt{2u-2v}}\\ \frac{1}{2} &amp; \frac{1}{2}\end{bmatrix} = \dfrac{1}{2\sqrt{2u-2v}}\]</span></p>
-<p>Now, we express the integrand in terms of the new variables: <span class="math inline">\(x=\sqrt{\frac{u-v}{2}}\)</span>.</p>
-<p>Putting everything together, we apply the change of variables: <span class="math display">\[ \iint_R x dA = \int_0^1\int_0^1 \frac{1}{2\sqrt{2u-2v}}\sqrt{\frac{u-v}{2}}du dv = \int_0^1\int_0^1 \frac{1}{4} du dv = \frac{1}{4}\]</span></p>
-</div>
-<div class="exercise">
-<p><span id="exr:unlabeled-div-102" class="exercise"><strong>Exercise 13.4  </strong></span>Evaluate <span class="math inline">\(\displaystyle \iint_R (x^2-xy -y^2) dA\)</span> where <span class="math inline">\(R\)</span> is the region in the first quadrant bounded by the hyperbolae <span class="math inline">\(xy=1\)</span>, <span class="math inline">\(xy=3\)</span>, <span class="math inline">\(x^2-y^2=2\)</span>, <span class="math inline">\(x^2-y^2=4\)</span> into a square in the <span class="math inline">\(uv\)</span>-plane.</p>
-</div>
-<div class="solution">
-<p><span id="unlabeled-div-103" class="solution"><em>Solution</em>. </span>Using the transformation we found in an earlier example, we have <span class="math inline">\(u(x,y)=xy\)</span> and <span class="math inline">\(v(x,y)=x^2-y^2\)</span>. Note that in this case, writing <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in terms of <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> is not so simple; we will use the property of the Jabobian that <span class="math inline">\(\dfrac{\partial(x,y)}{\partial(u,v)}=\dfrac{1}{\frac{\partial(u,v)}{\partial(x,y)}}\)</span>.</p>
-<p><span class="math display">\[\frac{\partial(u,v)}{\partial(x,y)} = \det \begin{bmatrix}\frac{\partial u}{\partial x}&amp;\frac{\partial u}{\partial y}\\ \frac{\partial v}{\partial x}&amp; \frac{\partial v}{\partial y}\end{bmatrix}=\det\begin{bmatrix}y &amp; x\\2x&amp; -2y\end{bmatrix}=-2y^2-2x^2\]</span></p>
-<p>and so <span class="math display">\[\dfrac{\partial(x,y)}{\partial(u,v)}=\dfrac{1}{\frac{\partial(u,v)}{\partial(x,y)}} = \frac{1}{-2y^2-2x^2}\]</span></p>
-<p>Expressing the integrand in terms of the new variables, we get <span class="math display">\[x^2-xy -y^2 = v-u\]</span></p>
-</div>
+<div id="two-variable-taylor-series" class="section level2" number="34.3">
+<h2><span class="header-section-number">34.3</span> Two-Variable Taylor Series</h2>
+<p>Now that we’ve spent a lot of time with Taylor series, it’s time to move back into multivariable calculus and consider the <span class="math inline">\(n\)</span>th order Taylor series of a function of two variables.</p>
 
 </div>
 </div>
@@ -431,8 +387,8 @@ where <span class="math display">\[\dfrac{\partial(x,y)}{\partial (u,v)}=\det\be
           </div>
         </div>
       </div>
-<a href="lec-12.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="lec-14.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lec-33.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
