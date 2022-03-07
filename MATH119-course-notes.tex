@@ -89,7 +89,7 @@
 
 \title{MATH 119 Course Notes}
 \author{Amanda Garcia}
-\date{2022-01-04}
+\date{2022-03-07}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -3707,7 +3707,7 @@ Let's take a look at two functions, \(f(x)=\sin(x)\) and \(g(x)=\frac{1}{1+x}\).
 
 It seems like the Taylor polynomial gives a better and better approximation of \(f(2)\), but the same can't be said for \(g(2)\). A natural question to ask is whether the Taylor series of a function is actually \emph{equal} to the function. We've seen a few examples (such as \(f(x)=\sin(x)\) where taking higher and higher order Taylor polynomials of a function results in better and better approximations. In these cases, we might expect that as \(n\to\infty\) the Taylor polynomial converges to the function.
 
-In order to answer this question, we're going to revisit Taylor's Inequality. We have that \[f(x)=\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k+R_n(x)\] where \(|R_n(x)|\leq K \dfrac{|x-x_0|^{n+1}}{(n+1)!}\) with \(|f^{(n)}(z)|\leq K\) for all values of \(z\) between \(x\) and \(x_0\). Whether or not the Taylor series is equal to the function depends on what happens as we take the limit \(n\to\infty\). We have \[f(x)=^{?}\lim_{n\to\infty}\left [\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k+R_n(x) \right] =^? \lim_{n\to\infty}\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k + \lim_{n\to \infty}R_n(x)\]
+In order to answer this question, we're going to revisit Taylor's Inequality. We have that \[f(x)=\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k+R_n(x)\] where \(|R_n(x)|\leq K \dfrac{|x-x_0|^{n+1}}{(n+1)!}\) with \(|f^{(n+1)}(z)|\leq K\) for all values of \(z\) between \(x\) and \(x_0\). Whether or not the Taylor series is equal to the function depends on what happens as we take the limit \(n\to\infty\). We have \[f(x)=^{?}\lim_{n\to\infty}\left [\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k+R_n(x) \right] =^? \lim_{n\to\infty}\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k + \lim_{n\to \infty}R_n(x)\]
 We will have an equality of \(f(x)\) and its Taylor series if \(\displaystyle \lim_{n\to \infty}R_n(x)=0\); otherwise, we can still calculate the Taylor series of the function, but it won't be equal to \(f(x)\).
 
 A warning about notation: when we write \(f(x)=\sum_{k=0}^\infty\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k\), we really mean that \(f(x)=\lim_{n\to\infty}\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k\) for all \(x\).
