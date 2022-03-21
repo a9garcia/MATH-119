@@ -89,7 +89,7 @@
 
 \title{MATH 119 Course Notes}
 \author{Amanda Garcia}
-\date{2022-03-07}
+\date{2022-03-21}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -5176,6 +5176,87 @@ Given \(\sin(x)=x+\mathcal{O}(x^3)\), find \(\displaystyle \lim_{x\to 0}\frac{\s
 \section{Two-Variable Taylor Series}\label{two-variable-taylor-series}}
 
 Now that we've spent a lot of time with Taylor series, it's time to move back into multivariable calculus and consider the \(n\)th order Taylor series of a function of two variables.
+
+Consider a function of two variables \(f(x,y)\). We want to approximate the value of \(f\) which will be valid for values of \(x\) and \(y\) near the point \((x_0,y_0)\).
+
+Let's reduce this problem to a single-variable Taylor polynomial, which we're already familiar with by fixing a value for \(y\). Now our function becomes a function of \(x\) only, and we can do our usual Taylor series expansion centred at \(x_0\):
+
+\[f(x,y)=f(x_0,y)+f_x(x_0,y)\cdot(x-x_0)+\dfrac{1}{2!}f_{xx}(x_0,y)(x-x_0)^2+\cdots\]
+
+Note that we're using partial derivatives with respect to \(x\) here since we're dealing with a multivariate function.
+
+We still have to take the variable \(y\) into account. We'll do so by expanding each of the terms \(f(x_0,y)\), \(f_x(x_0,y)\), \(f_{xx}(x_0,y)\) etc into their own Taylor series centred at \(y_0\):
+
+\begin{itemize}
+\tightlist
+\item
+  \(f(x_0,y)=f(x_0,y_0)+f_y(x_0,y_0)\cdot(y-y_0)+\dfrac{1}{2!}f_{yy}(x_0,y_0)\cdot(y-y_0)^2+\cdots\)
+\item
+  \(f_x(x_0,y)=f_x(x_0,y_0)+f_{xy}(x_0,y_0)\cdot(y-y_0)+\dfrac{1}{2!}f_{xyy}(x_0,y_0)\cdot(y-y_0)^2+\cdots\)
+\item
+  \(f_{xx}(x_0,y)=f_{xx}(x_0,y_0)+f_{xxy}(x_0,y_0)\cdot(y-y_0)+\dfrac{1}{2!}f_{xxyy}(x_0,y_0)\cdot(y-y_0)^2+\cdots\)
+\end{itemize}
+
+As you might imagine, substituting each of these expressions back into our original expansion would be rather daunting. The good news is that we know what we're after: an \(n\)-th degree approximation.
+
+\begin{itemize}
+\tightlist
+\item
+  For \(n=1\), we want a linear approximation, so we should collect the constant term and the linear terms.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The constant term is \(f(x_0,y_0)\)
+  \item
+    There are two linear terms: \(f_x(x_0,y_0)(x-x_0)\) and \(f_y(x_0,y_0)(y-y_0)\)
+  \end{itemize}
+\item
+  For \(n=2\), we want a quadratic approximation, so we should collect the constant term, the linear terms, and the quadratic terms.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The constant and linear terms are the same as for \(n=1\)
+  \item
+    There are three quadratic terms: \(f_{xx}(x_0,y_0)(x-x_0)^2\), \(f_{xy}(x_0,y_0)(x-x_0)(y-y_0)\) (twice), and \(f_{yy}(y-y_0)^2\)
+  \end{itemize}
+\end{itemize}
+
+Let's use these observations to write our Taylor series out:
+\begin{align*}
+f(x,y)&= f(x_0,y_0) \\
+&+ f_x(x_0,y_0)\cdot (x-x_0) + f_y(x_0,y_0)\cdot (y-y_0)\\
+&+ \dfrac{1}{2!}\left [f_{xx}(x_0,y_0)\cdot(x-x_0)^2 + 2f_{xy}\cdot(x-x_0)\cdot(y-y_0)+f_{yy}(x_0,y_0)\cdot(y-y_0)^2\right ]\\
+&+ \dfrac{1}{3!} [f_{xxx}(x_0,y_0)(x-x_0)^3+3f_{xxy}(x_0,y_0)(x-x_0)^2\cdot(y-y_0)\\ & \quad +3f_{xyy}(x_0,y_0)(x-x_0)\cdot (y-y_0)^2+f_{yyy}(x_0,y_0)(y-y_0)^3  ]
+\end{align*}
+
+\begin{exercise}
+\protect\hypertarget{exr:unlabeled-div-265}{}\label{exr:unlabeled-div-265}
+
+Find the values of second order Taylor approximation to the function \(f(x,y)=\sin(x^2y)\) centred at \(\left(1,\frac{\pi}{2}\right )\).
+
+\end{exercise}
+
+\begin{solution}
+
+We have
+\begin{align*}
+f(x,y) = \sin(x^2y) \quad & \Rightarrow \quad f\left(1,\frac{\pi}{2}\right )=1\\
+f_x(x,y) = 2xy\cos(x^2y) \quad & \Rightarrow \quad f_x\left(1,\frac{\pi}{2}\right )=0 \\
+f_y(x,y) = x^2\cos(x^2y) \quad & \Rightarrow \quad f_y\left(1,\frac{\pi}{2}\right )=0 \\ 
+f_{xx}(x,y) = 2y\cos(x^2y)-4x^2y^2\sin(x^2y) \quad & \Rightarrow \quad f_{xx}\left(1,\frac{\pi}{2}\right )= -\pi^2\\
+f_{xy}(x,y) = 2x\cos(x^2y)-2x^3y\sin(x^2y) \quad & \Rightarrow \quad f_{xy}\left(1,\frac{\pi}{2}\right )= -\frac{\pi^2}{2}\\
+f_{yy}(x,y) = -x^4\sin(x^2y) \quad & \Rightarrow \quad f_{yy}\left(1,\frac{\pi}{2}\right )= -1
+\end{align*}
+
+Substituting the values into our formula, we get
+\begin{align*}
+\sin(x^2y) & \approx 1+ 0\cdot(x-1)+0\cdot \left(y-\frac{\pi}{2}\right)\\ & \quad +\frac{1}{2!}\left[-\pi^2(x-1)^2+2\left(-\frac{\pi^2}{2}\right)(x-1)\left(y-\frac{\pi}{2}\right) - \left(y-\frac{\pi}{2}\right)^2\right]\\
+&= 1 -\frac{\pi^2(x-1)^2}{2}-\frac{\pi^2}{2}(x-1)\left(y-\frac{\pi}{2}\right) -\frac{1}{2}\left(y-\frac{\pi}{2}\right)^2
+\end{align*}
+
+\end{solution}
 
   \bibliography{book.bib}
 
