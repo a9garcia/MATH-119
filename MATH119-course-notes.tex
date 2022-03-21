@@ -5229,6 +5229,7 @@ f(x,y)&= f(x_0,y_0) \\
 &+ f_x(x_0,y_0)\cdot (x-x_0) + f_y(x_0,y_0)\cdot (y-y_0)\\
 &+ \dfrac{1}{2!}\left [f_{xx}(x_0,y_0)\cdot(x-x_0)^2 + 2f_{xy}\cdot(x-x_0)\cdot(y-y_0)+f_{yy}(x_0,y_0)\cdot(y-y_0)^2\right ]\\
 &+ \dfrac{1}{3!} [f_{xxx}(x_0,y_0)(x-x_0)^3+3f_{xxy}(x_0,y_0)(x-x_0)^2\cdot(y-y_0)\\ & \quad +3f_{xyy}(x_0,y_0)(x-x_0)\cdot (y-y_0)^2+f_{yyy}(x_0,y_0)(y-y_0)^3  ]
+& + \cdots
 \end{align*}
 
 \begin{exercise}
@@ -5255,6 +5256,655 @@ Substituting the values into our formula, we get
 \sin(x^2y) & \approx 1+ 0\cdot(x-1)+0\cdot \left(y-\frac{\pi}{2}\right)\\ & \quad +\frac{1}{2!}\left[-\pi^2(x-1)^2+2\left(-\frac{\pi^2}{2}\right)(x-1)\left(y-\frac{\pi}{2}\right) - \left(y-\frac{\pi}{2}\right)^2\right]\\
 &= 1 -\frac{\pi^2(x-1)^2}{2}-\frac{\pi^2}{2}(x-1)\left(y-\frac{\pi}{2}\right) -\frac{1}{2}\left(y-\frac{\pi}{2}\right)^2
 \end{align*}
+
+\end{solution}
+
+\hypertarget{lec-35}{%
+\chapter{Review 1}\label{lec-35}}
+
+\begin{exercise}
+\protect\hypertarget{exr:unlabeled-div-267}{}\label{exr:unlabeled-div-267}
+
+Find the root of the function \(f(x) = e^x + x + 4\) correct to 3 decimal places. You may use \(x_0=1\) as a starting point.
+
+\end{exercise}
+
+\begin{solution}
+
+We apply Newton's Method. In order to get to 3 decimal accuracy we must iterate enough times so that consecutive solutions round to the same thousandth.
+
+Recall that Newton's formula is
+
+\[
+    x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+\]
+
+We must rewrite the question so that we are solving a root problem \(f(x) = 0\). In this instance we have
+
+\[
+    e^x + x - 4 = 0
+\]
+so that \(f(x) = e^x + x -4\).
+
+From here we see that \(f'(x) = e^x + 1\), so Newton's formula gives
+
+\[
+    x_{n+1} = x_n - \frac{e^{x_n} + x_n - 4}{e^{x_n} + 1}
+\]
+
+Starting with \(x_0 = 1\) we iterate to give the following sequence of solutions
+\begin{align*}
+    x_0 &=  1 \\
+    x_1 &= 1.075765686 \\
+    x_2 &= 1.073730483 \\
+    x_3 &= 1.073728983 \\
+\end{align*}
+
+We see that solutions 3 and 4 round to the same thousandth and therefore our solution (to 3 decimal places) is
+\[
+    x = 1.074
+\]
+
+\end{solution}
+
+\begin{exercise}
+\protect\hypertarget{exr:unlabeled-div-269}{}\label{exr:unlabeled-div-269}
+
+Use \(x_0 = 0.75\) as a starting point to find the rightmost solution to the equation \(e^{-x^2}=x^2\), correct to 4 decimal places.
+
+\end{exercise}
+
+\begin{solution}
+
+Using Newton's Method, we have
+\[x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}\]
+\[f(x)=e^{-x^2}-x^2 \Rightarrow f'(x)=-2xe^{-x^2}-2x\]
+So
+\[\displaystyle x_{n+1}=x_n-\frac{e^{-x_n^2}-x_n^2}{-2x_ne^{-x_n^2}-2x_n}=x_n+\frac{e^{-x_n^2}-x_n^2}{2x_ne^{-x_n^2}+2x_n}\]
+With \(x_0=0.75\), we get
+\begin{align*}
+x_0 &= 0.75\\
+x_1 & =0.75-\frac{f(0.75)}{f'(0.75)}=0.75+\frac{e^{-(0.75^2)}-0.75^2}{1.5e^{-(0.75^2)}+1.5}=0.7530929224...\\
+x_2 & =0.753089165...
+\end{align*}
+
+Thus, we have that \(x=0.7531\) after 2 iterations.
+
+\end{solution}
+
+\begin{exercise}
+\protect\hypertarget{exr:unlabeled-div-271}{}\label{exr:unlabeled-div-271}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Find the third degree Taylor polynomial of \(\sqrt[3]{x}\) centered at \(x=1\) (i.e.~\(P_{3,1}(x)\))
+\item
+  Use Taylor's inequality to find an upper bound on the error in using \(P_{3,1}(x)\) to approximate \(\sqrt[3]{2}\)
+\item
+  Verify that the actual error (by computing \(\sqrt[3]{2}\) directly) is less than the upper bound you found in part (2).
+\end{enumerate}
+
+\end{exercise}
+
+\begin{solution}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Finding the derivatives and evaluating at \(x_0=1\) we get
+  \begin{align*}
+   f(x)=\sqrt[3]{x} & \quad  f(1)=1\\
+   f'(x)=\frac{1}{3}x^{-\frac{2}{3}} &  \quad  f'(1)= \frac{1}{3}\\
+   f''(x)=-\frac{2}{9}x^{-\frac{5}{3}} &  \quad  f''(1)= -\frac{2}{9}\\
+   f'''(x)=\frac{10}{27}x^{-\frac{8}{3}} &  \quad  f'''(1)= \frac{10}{27}
+  \end{align*}
+\end{enumerate}
+
+Entering these values into the our Taylor polynomial formula we get
+\[P_{3,1}(x)=1+\frac{1}{3}(x-1)+\frac{-2}{9}\frac{(x-1)^2}{2!}+\frac{10}{27}\frac{(x-1)^3}{3!}\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Taking the \(4^{th}\) derivative of \(f(x)=\sqrt[3]{x}\) we get
+  \[ f^{(4)}(x)=\frac{-80}{81}x^{\frac{-11}{3}}\]
+\end{enumerate}
+
+Now for \(t\in [1,2]\) we have that
+\[|f^{(4)}(t)|=\left|\frac{-80}{81x^{\frac{11}{3}}}\right|\leq \frac{80}{81}\]
+
+Taylor's Inequality gives
+\[|R_{3,1}(x)|\leq \frac{80}{81}\frac{|x-1|^4}{4!}\Rightarrow|R_{3,1}(2)|\leq \frac{80}{81}\frac{|2-1|^4}{4!}=\frac{10}{243}=0.04115226337449...\]
+
+This gives that the error of the approximation of \(\sqrt[3]{2}\) by \(P_{3,1}(2)\) is bounded by \(\displaystyle\frac{10}{243}\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Using a calculator we find that \(\sqrt[3]{2}=1.25992104989487...\)
+\end{enumerate}
+
+Additionally, we have that \(\displaystyle P_{3,1}(2)=1+\frac{1}{3}-\frac{1}{9}+\frac{10}{3!27}=\frac{104}{81}\).
+
+So then our error is given by
+\[
+\mbox{Error}=\left|\sqrt[3]{2}-\frac{104}{81}\right|=0.02402956738908
+\]
+and we see that this is, indeed, less than our error bound found in (2).
+
+\end{solution}
+
+\begin{exercise}
+\protect\hypertarget{exr:unlabeled-div-273}{}\label{exr:unlabeled-div-273}
+
+Approximate the value of \(\int_0^1 \sin(2t^3)dt\) by using the Maclaurin polynomial of degree \(10\) of the function
+\[
+    f(x) = \int_0^x \sin(2t^3) dt.
+\]
+Calculate an upper bound on the error in your approximation.
+
+\end{exercise}
+
+\begin{solution}
+
+First we will find a polynomial for g(u)=sin\((u)\) where \(u\in [0,2]\) and then do a substitution \(u\rightarrow 2t^3\).
+
+Taking the derivatives and evaluating at \(u_0=0\) (since we are to use a Maclaurin polynomial) we get
+
+\begin{align*}
+g(u)=\sin (u) & \quad g(0)=0\\
+g'(u)=\cos (u) & \quad g'(0)= 1\\
+g''(u)=-\sin (u) & \quad g''(0)=0\\
+g'''(u)=-\cos (u) & \quad g'''(0)=-1
+\end{align*}
+
+From this we get that
+\[ \sin (u)\approx P_{3,0}(u)=u-\frac{u^3}{3!}\]
+
+We notice that \(g^{(4)}(0)=0\) so, in fact, \(P_{3,0}(u)=P_{4,0}(u)\). Taking another derivative we get
+\[g^{(5)}(u)=\cos (u)\]
+Since \(\cos(u)\leq 1\), Taylor's Inequality gives
+\[|R_{4,0}(u)|\leq \frac{|u|^5}{5!}\]
+
+Now the substitution for \(2t^3\) gives
+\[\sin (2t^3)=2t^3-\frac{(2t^3)^3}{3!}+R_{4,0}(2t^3) \ \mathrm{for} \ t\in[0,1]\]
+Given the substitution, the error bound is now
+\[|R_{4,0}(2t^3)|\leq \frac{|2t^3|^5}{5!}=\frac{32t^{15}}{5!}\]
+Now integrating from \(0\) to \(x\) we get
+
+\begin{align*}
+f(x)=\int^x_0\sin (2t^3)dt\\
+&=\int^x_0(2t^3-\frac{8t^9}{3!}+R_{4,0}(2t^3))dt\\
+&=\frac{x^4}{2}-\frac{8x^{10}}{3!10}+\int^x_0R_{4,0}(2t^3)dt\\
+&=\frac{x^4}{2}-\frac{2x^{10}}{15}+\int^x_0R_{4,0}(2t^3)dt
+\end{align*}
+
+Since \(|R_{4,0}(2t^3)|\leq \frac{32t^{15}}{5!}\) we have that the error bound for the above polynomial is given by
+\[\left|\int^x_0R_{4,0}(2t^3)dt\right|\leq \int^x_0|R_{4,0}(2t^3)|dt \leq \int^x_0 \frac{32t^{15}}{5!}dt=\frac{32x^{16}}{5!16}=\frac{x^{16}}{60}\]
+
+Setting \(x=1\) we have that
+\[\int^1_0\sin (2t^3)dt \approx \frac{1}{2}-\frac{2}{15}=\frac{11}{30}=0.3\overline{6}\]
+with an error bound of
+\[\left|\int^x_0R_{4,0}(2t^3)dt\right|\leq \frac{1}{60}\]
+
+\end{solution}
+
+\begin{exercise}
+\protect\hypertarget{exr:unlabeled-div-275}{}\label{exr:unlabeled-div-275}
+
+Let \(T_n(x)\) be the Taylor polynomial of degree up to \(n\) for \(y=\sin{x}\) expanded about 0. Find an \(n\) such that \(|\sin(0.1)-T_n(0.1)| \le 10^{-6}\), and show that your \(n\) works.
+
+\end{exercise}
+
+\begin{solution}
+
+Let \(\displaystyle f(x)=\sin{x}\). Then all derivatives of \(f(x)\) are \(\pm \sin x\) and \(\pm \cos x\), and therefore \(|f^{(n)}(x)| \leq 1 = M\) for all \(n\). Using Taylor's inequality:
+
+\[
+    |\sin x - T_n(x)| \le \frac{M}{(n+1)!}|x|^{(n+1)} \quad \Longrightarrow |\sin(0.1)-T_n(0.1)| \le \frac{1}{10^{n+1}(n+1)!}
+\]
+
+We require \(n\) such that \(\displaystyle \frac{1}{10^{n+1}(n+1)!} \le 10^{-6}\) or \(10^{n+1}(n+1)!>10^6\).
+
+Choose \(n=4\). Then \(10^5(5!)=1.2\times10^7>10^6\).
+
+Therefore if we take \(\displaystyle T_4\left(\frac{1}{10}\right)=\frac{1}{10}-\frac{1}{10^3\cdot3!}=\frac{599}{6000}\), we will have \(|\sin(0.1)-T_n(0.1)| \le 10^{-6}\).
+
+\end{solution}
+
+\begin{exercise}
+\protect\hypertarget{exr:unlabeled-div-277}{}\label{exr:unlabeled-div-277}
+
+When we already know the Taylor expansion of a function it is often easier to use tricks to find a Taylor polynomial of a similar function.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Find the fifth degree Maclaurin polynomial (i.e.~\(P_{5,0}(x)\)) of the function \(f(x)=\sin(x)\)
+\item
+  By differentiating \(P_{5,0}(x)\), verify that it is equivalent to \(P_{4,0}(x)\) of \(\cos(x)\).
+\item
+  By substituting \(x \rightarrow 2x\) into \(P_{5,0}(x)\) show that it is equivalent to \(P_{5,0}(x)\) of \(\sin(2x)\).
+\item
+  By multiplying by \(x\) show that it is equivalent to \(P_{6,0}(x)\) of \(x\sin(x)\).
+  You should compute the appropriate Taylor polynomials of \(\cos(x), \sin(2x)\) and \(x\sin(x)\) directly to compare.
+\end{enumerate}
+
+\end{exercise}
+
+\begin{solution}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Finding the derivatives and evaluating at \(x_0=0\) we get
+\end{enumerate}
+
+\begin{align*} 
+f(x)=\sin x & \quad f(0)=0\\
+f'(x)=\cos x & \quad f'(0)= 1\\
+ f''(x)=-\sin x & \quad f''(0)=0\\
+ f'''(x)=-\cos x & \quad f'''(0)=-1\\
+ f^{(4)}(x)=\sin x & \quad f^{(4)}(0)=0\\
+ f^{(5)}(x)=\cos x & \quad f^{(5)}(0)=1
+\end{align*}
+
+Entering these values into the equation of a Maclaurin polynomial we get
+\[P_{5,0}(x)=x-\frac{x^3}{3!}+\frac{x^5}{5!}\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  We know that for values of \(x\) near \(0\), \(P_{5,0}(x)\approx \sin x\). So then differentiation of \(P_{5,0}(x)\) suggests that
+  \[\cos x\approx1-\frac{x^2}{2!}+\frac{x^4}{4!}\]
+\end{enumerate}
+
+To verify that the above approximation does, indeed, hold we find \(P_{4,0}(x)\) of cos\(x\).
+\begin{align*} 
+f(x)=\cos x & \quad f(0)=1\\
+f'(x)=-\sin x & \quad f'(0)= 0\\
+ f''(x)=-\cos x & \quad f''(0)=-1\\
+ f'''(x)=\sin x & \quad f'''(0)=0\\
+ f^{(4)}(x)=\cos x & \quad f^{(4)}(0)=1
+\end{align*}
+
+\(\displaystyle \Rightarrow P_{4,0}(x)=1-\frac{x^2}{2!}+\frac{x^4}{4!}\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Substituting doing the substitution \(x\rightarrow 2x\) into \(P_{5,0}(x)\) from \((1)\) suggests
+  \[\sin(2x)\approx 2x-\frac{(2x)^3}{3!}+\frac{(2x)^5}{5!}=2x-\frac{8x^3}{3!}+\frac{32x^5}{5!}\]
+\end{enumerate}
+
+To verify that this does, indeed, hold we find \(P_{5,0}(x)\) of sin\((2x)\).
+\begin{align*} 
+ f(x)=\sin (2x) & \quad f(0)=0\\
+ f'(x)=2\cos (2x) & \quad f'(0)= 2\\
+ f''(x)=-4\sin (2x) & \quad f''(0)=0\\
+ f'''(x)=-8\cos (2x) & \quad f'''(0)=-8\\
+ f^{(4)}(x)=16\sin (2x) & \quad f^{(4)}(0)=0\\
+f^{(5)}(x)=32\cos (2x) & \quad f^{(5)}(0)=32
+\end{align*}
+
+\(\displaystyle\Rightarrow P_{5,0}(x)=2x-\frac{8x^3}{3!}+\frac{32x^5}{5!}\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Multiplying \(P_{5,0}(x)\) from \((1)\) by \(x\) suggests that
+  \[x\sin x\approx x^2-\frac{x^4}{3!}+\frac{x^6}{5!}\]
+\end{enumerate}
+
+To verify that this holds, we find \(P_{6,0}(x)\) of \(x\sin x\).
+\begin{align*} 
+ f(x)=x\sin x & \quad f(0)=0\\
+ f'(x)=\sin x +x\cos x & \quad f'(0)=0\\
+ f''(x)=2\cos x-x\sin x & \quad f''(0)=2\\
+ f'''(x)=-3\sin x-x\cos x & \quad f'''(0)=0\\
+ f^{(4)}(x)=-4\cos x+x\sin x & \quad f^{(4)}(0)=-4\\
+ f^{(5)}(x)=5\sin x+x\cos x & \quad f^{(5)}(0)=0\\
+ f^{(6)}(x)=6\mathrm{cosx}-x\sin x& \quad f^{(6)}(0)=6
+\end{align*}
+
+\(\displaystyle\Rightarrow P_{6,0}(x)=x^2-\frac{x^4}{3!}+\frac{x^6}{5!}\)
+
+\end{solution}
+
+\hypertarget{lec-36}{%
+\chapter{Review 2}\label{lec-36}}
+
+\begin{exercise}
+\protect\hypertarget{exr:unlabeled-div-279}{}\label{exr:unlabeled-div-279}
+
+Determine if the following series converge or diverge. In the case of a convergent series, find the sum of the series.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\sum_{n=0}^{\infty} \frac{\cos{(\pi n)}}{(\sin{\left(\frac{\pi}{3}\right)})^n}\)
+\item
+  \(\displaystyle \sum_{n=0}^{\infty} \frac{3^{n+1}+2^{2n}}{7^n}\)
+\end{enumerate}
+
+\end{exercise}
+
+\begin{solution}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  We can re-write the series as \[\sum_{n=0}^{\infty} \frac{\cos{(\pi n)}}{(\sin{\left(\frac{\pi}{3}\right)})^n}=\sum_{n=0}^{\infty}(-1)^n\left(\frac{2}{\sqrt{3}}\right)^n\]
+  We get then that \(\displaystyle r= \frac{-2}{\sqrt{3}}\) and so, \(|r|>1\) which gives that this geometric series diverges.
+\item
+  We can re-write the series as \[ \sum_{n=0}^{\infty} \frac{3^{n+1}+2^{2n}}{7^n}=\sum_{n=0}^{\infty}\left( 3\left(\frac{3}{7}\right)^n+\left(\frac{4}{7}\right)^n\right)\]
+  We have that the series \[\sum_{n=0}^{\infty}3\left(\frac{3}{7}\right)^n\]
+  converges since \(\displaystyle \frac{3}{7} <1\). The sum is \[\sum_{n=0}^{\infty}3\left(\frac{3}{7}\right)^n=\frac{3}{1-\frac{3}{7}}=\frac{21}{4}\]
+  We also have the series \[\sum_{n=0}^{\infty}\left(\frac{4}{7}\right)^n\] converges since \(\displaystyle \frac{4}{7}<1\). The sum is \[\sum_{n=0}^{\infty}\left(\frac{4}{7}\right)^n=\frac{1}{1-\frac{4}{7}}=\frac{7}{3}\]
+  From this we get that \(\displaystyle \sum_{n=0}^{\infty}\left( 3\left(\frac{3}{7}\right)^n+\left(\frac{4}{7}\right)^n\right)\) converges and the sum is \[\sum_{n=0}^{\infty} \frac{3^{n+1}+2^{2n}}{7^n}=\frac{21}{4}+\frac{7}{3}=\frac{91}{12}\]
+\end{enumerate}
+
+\end{solution}
+
+\begin{exercise}
+\protect\hypertarget{exr:unlabeled-div-281}{}\label{exr:unlabeled-div-281}
+
+Test the following series for convergence by making a suitable comparison.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\sum_{n=1}^{\infty} \frac{\sqrt{n}}{n^2+2n+2}\)
+\item
+  \(\displaystyle \sum_{n=1}^{\infty} \sin\bigg(\frac{1}{n}\bigg)\)
+\item
+  \(\displaystyle \sum_{n=1}^{\infty} \frac{3^{1/n}}{n^3}\)
+\item
+  \(\displaystyle \sum_{n=1}^{\infty} \frac{\arctan n}{n}\)
+\item
+  \(\displaystyle \sum_{n=1}^{\infty} \frac{n!}{n^n}\)
+\end{enumerate}
+
+\end{exercise}
+
+\begin{solution}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  For positive \(n\), \(n^2 + 2n + 2 > n^2\), so:
+\end{enumerate}
+
+\[ 
+    \frac{\sqrt{n}}{n^2 + 2n + 2} < \frac{\sqrt{n}}{n^2} = \frac{1}{n^{3/2}}
+\]
+
+and \(\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^{3/2}}\) converges (p-series test), so by the comparison test \(\displaystyle \sum_{n=1}^{\infty} \frac{\sqrt{n}}{n^2+2n+2}\) also converges.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  For small values of the argument, \(\sin(z) \approx z\). Formally, \(\displaystyle \lim_{z \to 0} \frac{\sin(z)}{z} = 1\). Letting \(z = \frac{1}{n}\), \(z \to 0 = n \to \infty\), so
+\end{enumerate}
+
+\[
+    \lim_{n \to \infty} \frac{\sin\left(\frac{1}{n}\right)}{ \frac{1}{n}} = 1
+\]
+
+and \(\displaystyle \sum_{n=1}^{\infty} \frac{1}{n}\) diverges, so by the limit comparison test, \(\displaystyle \sum_{n=1}^{\infty} \sin \bigg(\frac{1}{n} \bigg)\) diverges.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \(\displaystyle \lim_{n \to \infty} \frac{ \frac{3^{1/n}}{n^3}}{\frac{1}{n^3}} = \lim_{n \to \infty} 3^{1/n} = 1\), and \(\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^3}\) converges, so by the limit comparison test \(\displaystyle \sum_{n=1}^{\infty} \frac{3^{1/n}}{n^3}\) converges
+\end{enumerate}
+
+\(3^{1/n} < 3\), so \(\displaystyle \frac{3^{1/n}}{n^3} < \frac{3}{n^3}\), and \(\displaystyle \sum_{n=1}^{\infty} \frac{3}{n^3}\) converges, so by the comparison test\} \(\displaystyle \sum_{n=1}^{\infty} \frac{3^{1/n}}{n^3}\) converges
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  \(\displaystyle \lim_{n \to \infty} \frac{ \frac{\arctan n}{n}}{\frac{1}{n}} = \lim_{n \to \infty} \arctan{n} = \frac{\pi}{2}\), and \(\displaystyle \sum_{n=1}^{\infty}{1} \frac{1}{n}\) diverges, so by the limit comparison test \(\displaystyle \sum_{n=1}^{\infty} \frac{\arctan n}{n}\) diverges.
+\item
+  \[ 
+   \frac{n!}{n^n} = \frac{1}{n} \cdot \frac{2}{n}  \cdot \frac{3}{n} \cdots \frac{n-1}{n} \cdot \frac{n}{n}
+  \]
+\end{enumerate}
+
+Each of these terms is less than or equal to 1, so \(\dfrac{n!}{n^n} \leq \dfrac{1}{n} \cdot \dfrac{2}{n} = \dfrac{2}{n^2}\), provided \(n \geq 2\), so since \(\displaystyle \sum_{n=1}^{\infty}{2} \frac{2}{n^2}\) converges, by the comparison test \(\displaystyle \sum_{n=1}^{\infty} \frac{n!}{n^n}\) converges.
+
+\end{solution}
+
+\begin{exercise}
+\protect\hypertarget{exr:unlabeled-div-283}{}\label{exr:unlabeled-div-283}
+
+Find the radius and interval of convergence of
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\displaystyle \sum_{n=1}^{\infty}\frac{8^n}{n}(2x+1)^n\).
+\item
+  \(\displaystyle \sum_{n=0}^{\infty}\frac{n^2}{3^{2n}}(x+2)^n\)
+\item
+  \(\displaystyle \sum_{n=0}^{\infty}\frac{n+1}{n!}(x-1)^n\).
+\item
+  \(\displaystyle\sum_{n=1}^\infty (-1)^n \frac{(x-3)^n}{2n+1}\)
+\item
+  \(\displaystyle \sum_{n=1}^\infty \frac{10^n x^n}{n^{10}}\)
+\end{enumerate}
+
+\end{exercise}
+
+\begin{solution}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The ratio test gives
+  \begin{align*}
+  \lim_{n\to \infty}\Bigg| \frac{8^{n+1}(2x+1)^{n+1}}{n+1}\cdot\frac{n}{8^n(2x+1)^n}\Bigg|&=\lim_{n\to \infty}\Bigg|\frac{n}{n+1}8(2x+1)\Bigg|\\
+  &=8\Big|2x+1\Big|
+  \end{align*}
+  To converge we must have that \(8\big|2x+1\big|<1\). That is, we must require that
+  \begin{align*}
+  \big|2x+1\big|&<\frac{1}{8}\\
+  2\Big|x+\frac{1}{2}\Big|&<\frac{1}{8}\\
+  \Big|x+\frac{1}{2}\Big|&<\frac{1}{16}
+  \end{align*}
+  We see then that the radius of convergence is \(\displaystyle \frac{1}{16}\). The centre of the series is \(\displaystyle x=-\frac{1}{2}\) so the endpoints are \(\displaystyle x=-\frac{9}{16}\) and \(\displaystyle x=-\frac{7}{16}\). We now check for convergence at the endpoints.
+\end{enumerate}
+
+At \(\displaystyle x=-\frac{9}{16}\), we get \[\sum_{n=1}^{\infty}\frac{8^n}{n}\left(\frac{-1}{8}\right)^n=\sum_{n=1}^{\infty}\frac{(-1)^n}{n}\]
+which converges by the alternating series test.
+
+At \(\displaystyle x=-\frac{7}{16}\) we get \[\sum_{n=1}^{\infty}\frac{8^n}{n}\left(\frac{1}{8}\right)^n=\sum_{n=1}^{\infty}\frac{1}{n}\]
+which diverges since it is the Harmonic series.
+
+Thus, the interval of convergence is \(\displaystyle\left[-\frac{9}{16},-\frac{7}{16} \right)\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  The ratio test gives
+  \begin{align*}
+  \lim_{n\to \infty}\Bigg| \frac{(n+1)^2(x+2)^{n+1}}{3^{2n+2}}\cdot\frac{3^{2n}}{n^2(x+2)^n}\Bigg|&=\lim_{n\to \infty}\Bigg|\frac{(n+1)^2}{9n^2}(x+2)\Bigg|\\
+  &=\frac{1}{9}|x+2|
+  \end{align*}
+  To converge we must have that \(\displaystyle \frac{1}{9}|x+2|<1\). That is, we must require that \(|x+2|<9\). We see that the radius of convergence is 9. The centre of the series is \(x=-2\) so the endpoints are \(x=-11\) and \(x=7\). We now check for convergence at the endpoints.
+\end{enumerate}
+
+At \(x=-11\), we get \[ \sum_{n=0}^{\infty}\frac{n^2}{3^{2n}}(-9)^n=\sum_{n=0}^{\infty}(-1)^nn^2\]
+which diverges by the divergence test.
+
+At \(x=7\), we get \[ \sum_{n=0}^{\infty}\frac{n^2}{3^{2n}}9^n= \sum_{n=0}^{\infty}n^2\]
+which diverges by the divergence test.
+
+Thus, the interval of convergence is \((-11,7)\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  The ratio test gives
+  \begin{align*}
+  \lim_{n\to \infty}\Bigg| \frac{(n+2)(x-1)^{n+1}}{(n+1)!}\cdot \frac{n!}{(n+1)(x-1)^n}\Bigg|&=\lim_{n\to\infty}\Bigg| \frac{n+2}{(n+1)^2}(x-1)\Bigg|\\
+  &=\lim_{n\to\infty}\Bigg| \frac{\frac{n}{n^2}+\frac{2}{n^2}}{\frac{n^2}{n^2}+\frac{2n}{n^2}+\frac{1}{n^2}}(x-1)\Bigg|\\
+  &=0
+  \end{align*}
+  Thus, the radius of convergence is \(\infty\) and the interval of convergence is \(\mathbb{R}\).
+\item
+  By the ratio test: \[ \lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right| =
+  \lim_{n\to\infty}\left|\frac{(-1)^{n+1}(x-3)^{n+1}}{2(n+1)+1}\cdot\frac{2n+1}{(-1)^n(x-3)^n}\right| =  |x-3| \]
+\end{enumerate}
+
+Now, this limit is less than 1 (and hence the series converges) whenever \(|x-3|<1\), and the limit is greater than
+1 (and hence the series diverges) whenever \(|x-3|>1\). The radius of convergence is \(1\). Now test the endpoints
+\(x = 1+3=4\) and \(x = -1+3 = 2\).
+
+If \(x = 4\), then the series becomes \(\displaystyle{\sum_{n=1}^\infty (-1)^n \frac{(4-3)^n}{2n+1} = \sum_{n=1}^\infty (-1)^n \frac{1}{2n+1}}\), which converges by the alternating series test.
+
+If \(x = 2\), then the series becomes \(\displaystyle{\sum_{n=1}^\infty (-1)^n \frac{(2-3)^n}{2n+1} = \sum_{n=1}^\infty (-1)^n \frac{(-1)^n}{2n+1}} = \displaystyle{ \sum_{n=1}^\infty \frac{1}{2n+1}}\), which
+diverges (this can be proven with a limit comparison with \(\frac{1}{n}\)).
+
+Hence, the radius of convergence is 1, and the interval of convergence is \(x\in(2,4]\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  By the Ratio Test: \[ \lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| = \left|\frac{10^{n+1}
+  x^{n+1}}{(n+1)^{10}}\cdot \frac{n^{10}}{10^n x^n}\right| = 10 \left(\frac{n}{n+1}\right)^{10} |x| = 10
+  \left(\frac{1}{1+1/n}\right)^{10} |x| = 10|x| \]
+\end{enumerate}
+
+To converge, this must be less than 1, hence \(\displaystyle |x| < \frac{1}{10}\). Therefore the radius of convergence is
+\(\frac{1}{10}\). Now test the endpoints \(\pm \frac{1}{10}\).
+
+At \(x=\frac{1}{10}\), the series is \(\displaystyle \sum_{n=1}^\infty \frac{10^n (1/10)^n}{n^{10}} = \sum_{n=1}^\infty \frac{1}{n^{10}}\) which
+is a convergent \(p\)-series.
+
+At \(x=-\frac{1}{10}\), the series is \(\displaystyle \sum_{n=1}^\infty \frac{10^n (-1/10)^n}{n^{10}} = \sum_{n=1}^\infty \frac{(-1)^n}{n^{10}}\)
+which is convergent by the alternating series test.
+
+The interval of convergence is therefore \(\displaystyle \left[-\frac{1}{10},\frac{1}{10}\right]\).
+
+\end{solution}
+
+\begin{exercise}
+\protect\hypertarget{exr:unlabeled-div-285}{}\label{exr:unlabeled-div-285}
+
+Determine whether the series is absolutely convergent, conditionally convergent, or divergent.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\displaystyle{\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n^4}}\)
+\item
+  \(\displaystyle{\sum_{n=1}^\infty \frac{n!}{e^n}}\)
+\item
+  \(\displaystyle{\sum_{n=1}^\infty(-1)^{n} \frac{n}{\sqrt{n^3+2}}}\)
+\item
+  \(\displaystyle{\sum_{n=1}^\infty(-1)^{n+1} \frac{n^2 \,2^n}{n!}}\)
+\item
+  \(\displaystyle \sum_{n=1}^{\infty} \frac{\cos(1/n)}{n^2}\)
+\end{enumerate}
+
+\end{exercise}
+
+\begin{solution}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  We consider the series of absolute values, \(\displaystyle{\sum_{n=1}^\infty\frac{1}{n^4}}\), which clearly converges (\(p\)-series with \(p=4>1\)). Hence the series \(\displaystyle{\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n^4}}\) converges absolutely.
+\item
+  We use the ratio test with \(a_n = \frac{n!}{e^n}\). Then
+\end{enumerate}
+
+\[\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right| = \lim_{n\to\infty}\frac{(n+1)!}{e^{n+1}  }\cdot
+\frac{e^n}{n!} = \lim_{n\to\infty}\frac{n+1}{e} = \infty.\]
+
+Therefore, by the ratio test, the series diverges.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  To check for absolute convergence, focus on the series of absolute values: \(\displaystyle{\sum_{n=1}^\infty \frac{n}{\sqrt{n^3+2}}}\). We can show this diverges using the limit comparison test, comparing it with \(\displaystyle{\sum_{n=1}^\infty \frac{1}{n^{\frac{1}{2}}}}\) (this is a \(p\)-series with \(p = 1/2 <1\), and diverges). That is,
+\end{enumerate}
+
+\[
+    \lim_{n\to\infty} \frac{\left(\frac{n}{\sqrt{n^3+2}}\right)}{\left(\frac{1}{\sqrt n} \right)} = \lim_{n\to\infty}\frac{n\sqrt{n}}{\sqrt{n^3+2}} =  \lim_{n\to\infty}\frac{\sqrt{n^3}}{\sqrt{n^3+2}} = \lim_{n\to\infty}\frac{1}{\sqrt{1+2/n^3}} = 1
+\]
+
+Since the limit is a finite, non-zero number, we conclude that \(\displaystyle{\sum_{n=1}^\infty \frac{n}{\sqrt{n^3+2}}}\) diverges, so the original alternating series \(\displaystyle{\sum_{n=1}^\infty(-1)^{n} \frac{n}{\sqrt{n^3+2}}}\) does not absolutely converge. It remains to check if it converges conditionally.
+
+Let \(b_n = \frac{n}{\sqrt{n^3+2}}\). We must check the conditions of the alternating series test. Clearly \(b_n\) is positive and \(\lim_{n\to\infty}b_n = 0\) (since the degree of the denominator is greater than that of the numerator).
+
+To check if \(b_n\) is decreasing, consider the function \(f(x) = \frac{x}{\sqrt{x^3+2}}\). Then
+
+\[
+    f^\prime(x) = \frac{\sqrt{x^3+2} - x\left(\frac{1}{2\sqrt{x^3+2}}\right)(3x^2)}{x^3+2} = \frac{2(x^3+2) - 3x^3}{2(x^3+2)^{3/2}} = \frac{4-x^3}{2(x^3+2)^{3/2}}
+\]
+
+This derivative is negative for \(x>4^{1/3}\), meaning that the function is decreasing. We can now conclude that \(b_n\) is a decreasing sequence for all \(n\in\mathbb N\), \(n\ge 2\). By the alternating series test, \(\displaystyle{\sum_{n=1}^\infty(-1)^{n} \frac{n}{\sqrt{n^3+2}}}\) converges.
+
+Therefore, the series \(\displaystyle{\sum_{n=1}^\infty(-1)^{n} \frac{n}{\sqrt{n^3+2}}}\) converges conditionally.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  We apply the ratio test. Here \(a_n = (-1)^{n+1}\frac{n^2\, 2^n}{n!}\), so
+\end{enumerate}
+
+\[
+    \lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right| = \lim_{n\to\infty}\left|\frac{(-1)^{n+2}(n+1)^2\,2^{n+1}\,n!}{(-1)^{n+1}(n+1)!\,n^2\,2^n}\right|  =  \lim_{n\to\infty}\frac{(n+1)^2\,2}{(n+1)\,n^2} = 2\lim_{n\to\infty}\frac{(n+1)}{n^2} = 0.
+\]
+
+Therefore, since this limit is less than 1, by the ratio test, the series converges absolutely.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  The series of absolute values is \(\displaystyle \sum_{n=1}^{\infty} \frac{|\cos(1/n)|}{n^2}\). Since \(|\cos(1/n)| \le 1\), then \(\frac{|\cos(1/n)|}{n^2} \le \frac{1}{n^2}\). Since \(\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^2}\) is a convergent \(p\)-series, then by the Comparison Test, \(\displaystyle \sum_{n=1}^{\infty} \frac{|\cos(1/n)|}{n^2}\) is convergent also.
+\end{enumerate}
+
+Since the series of absolute values is convergent, then \(\displaystyle \sum_{n=1}^{\infty} \frac{\cos(1/n)}{n^2}\) is absolutely convergent.
 
 \end{solution}
 

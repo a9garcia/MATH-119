@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture 24 Approximation of Integrals using Taylor Polynomials | MATH 119 Course Notes</title>
-  <meta name="description" content="Lecture 24 Approximation of Integrals using Taylor Polynomials | MATH 119 Course Notes" />
+  <title>Lecture 35 Review 1 | MATH 119 Course Notes</title>
+  <meta name="description" content="Lecture 35 Review 1 | MATH 119 Course Notes" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture 24 Approximation of Integrals using Taylor Polynomials | MATH 119 Course Notes" />
+  <meta property="og:title" content="Lecture 35 Review 1 | MATH 119 Course Notes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture 24 Approximation of Integrals using Taylor Polynomials | MATH 119 Course Notes" />
+  <meta name="twitter:title" content="Lecture 35 Review 1 | MATH 119 Course Notes" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="lec-23.html"/>
-<link rel="next" href="lec-25.html"/>
+<link rel="prev" href="lec-34.html"/>
+<link rel="next" href="lec-36.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -355,70 +355,224 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lec-24" class="section level1" number="24">
-<h1><span class="header-section-number">Lecture 24</span> Approximation of Integrals using Taylor Polynomials</h1>
-<p>Text References: Course notes pp. 111-114 &amp; Rogawski 10.7</p>
-<div id="recap-22" class="section level2" number="24.1">
-<h2><span class="header-section-number">24.1</span> Recap</h2>
-<p>Last time, we found a way to estimate the error bound of a Taylor polynomial.</p>
+<div id="lec-35" class="section level1" number="35">
+<h1><span class="header-section-number">Lecture 35</span> Review 1</h1>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-166" class="exercise"><strong>Exercise 24.1  </strong></span>Find the error bound for the third order Taylor polynomial of <span class="math inline">\(f(x)=\ln(x)\)</span> for centred at <span class="math inline">\(1\)</span> and evaluated at <span class="math inline">\(x=1.2\)</span>.</p>
+<p><span id="exr:unlabeled-div-267" class="exercise"><strong>Exercise 35.1  </strong></span>Find the root of the function <span class="math inline">\(f(x) = e^x + x + 4\)</span> correct to 3 decimal places. You may use <span class="math inline">\(x_0=1\)</span> as a starting point.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-167" class="solution"><em>Solution</em>. </span>First, we need to find a value of <span class="math inline">\(K\)</span> such that <span class="math inline">\(|f^{(4)}(x)|\leq K\)</span> for values of <span class="math inline">\(x\)</span> between <span class="math inline">\(1\)</span> and <span class="math inline">\(1.2\)</span>. We have <span class="math inline">\(f^{(4)}(x)=-6x^{-4}\)</span> and so <span class="math inline">\(|f^{(4)}(x)|\)</span> is decreasing on the interval <span class="math inline">\([1, 1.2]\)</span>. The maximum value on that interval is at <span class="math inline">\(x=1\)</span>, and so <span class="math inline">\(|f^{(4)}(x)|\leq f^{(4)}(1)=6\)</span>. We therefore set <span class="math inline">\(K\)</span>.</p>
-<p>Applying Taylor’s Inequality, we have <span class="math inline">\(\displaystyle |R_3(1.2)|\leq 6 \frac{|1.2-1|^4}{4!}\approx 0.0004\)</span>.</p>
-</div>
-</div>
-<div id="learning-objectives-23" class="section level2" number="24.2">
-<h2><span class="header-section-number">24.2</span> Learning Objectives</h2>
-<ul>
-<li>Use Taylor polynomials to approximate integrals.</li>
-</ul>
-</div>
-<div id="motivation-1" class="section level2" number="24.3">
-<h2><span class="header-section-number">24.3</span> Motivation</h2>
-<p>Now that we’ve developed a nice and robust theory of Taylor polynomials, it’s time to put it to use. One particularly useful application is in approximating integrals for which there is no tidy antiderivative.</p>
-<p>Let’s work with a motivating example. Suppose that we want to estimate <span class="math inline">\(\displaystyle \int_0^1 e^{x^2}dx\)</span>. Our approach will be to replace <span class="math inline">\(e^{x^2}\)</span> with a function that is close to <span class="math inline">\(e^{x^2}\)</span> but is much easier to integrate. The Taylor polynomial of <span class="math inline">\(e^{x^2}\)</span> is an excellent candidate: we know that it gives a good approximation of the function and polynomials are much easier to integrate.</p>
-</div>
-<div id="approximating-integrals-using-polynomials" class="section level2" number="24.4">
-<h2><span class="header-section-number">24.4</span> Approximating Integrals using Polynomials</h2>
-<p>Let’s take the second order Maclaurin polynomial of <span class="math inline">\(e^x\)</span> and use it to find the second order Maclaurin polynomial of <span class="math inline">\(e^{x^2}\)</span>. We have <span class="math inline">\(P_{0,2}(x)=1+x+\frac{x^2}{2!}+R_2(x)\)</span> and so <span class="math inline">\(P_{0,2}(x^2)=1+x^2+\frac{x^4}{2!}+R_2(x^2)\)</span></p>
-<p>Now, we have to deal with those remainders–simply throwing them away with throw off the accuracy of our approximation.</p>
-<p>Recall that <span class="math inline">\(\displaystyle |R_2(x)|\leq \frac{K|x-0|^3}{3!}\)</span>. We are working on the interval <span class="math inline">\([0,1]\)</span> and so the third derivative of <span class="math inline">\(e^x\)</span> is bounded above by <span class="math inline">\(e\)</span>. We can therefore set <span class="math inline">\(K=e\)</span> to get <span class="math inline">\(\displaystyle |R_2(x)|\leq \frac{e|x|^3}{3!}\leq \frac{3|x|^3}{3!} = \frac{|x|^3}{2}\)</span>. Note that here, we rounded <span class="math inline">\(e\)</span> up to <span class="math inline">\(3\)</span> to get some nice cancellations.</p>
-<p>Given that <span class="math inline">\(\displaystyle |R_2(x)|\leq\frac{|x|^3}{2}\)</span> this means that <span class="math inline">\(\displaystyle |R_2(x^2)|\leq\frac{|x^2|^3}{2}=\frac{x^6}{2}\)</span>. That is, <span class="math display">\[1+x^2+\frac{x^4}{2}-\frac{x^6}{2}\leq e^{x^2}\leq 1+x^2+\frac{x^4}{2}+\frac{x^6}{2}\]</span></p>
-<p>Now that we have all of the pieces in place, we can get back to the integral:</p>
-<p><span class="math display">\[\begin{align*}
- \int_0^1 e^{x^2}dx &amp; \leq \int_0^1 1+x^2+\frac{x^4}{2!}+R_2(x^2) dx \\
-&amp;= \int_0^1 1+x^2+\frac{x^4}{2!}+\frac{x^6}{2} dx\\
-&amp;= \frac{158}{105} \approx 1.505\\
+<p><span id="unlabeled-div-268" class="solution"><em>Solution</em>. </span>We apply Newton’s Method. In order to get to 3 decimal accuracy we must iterate enough times so that consecutive solutions round to the same thousandth.</p>
+<p>Recall that Newton’s formula is</p>
+<p><span class="math display">\[
+    x_{n+1} = x_n - \frac{f(x_n)}{f&#39;(x_n)}
+\]</span></p>
+<p>We must rewrite the question so that we are solving a root problem <span class="math inline">\(f(x) = 0\)</span>. In this instance we have</p>
+<p><span class="math display">\[
+    e^x + x - 4 = 0
+\]</span>
+so that <span class="math inline">\(f(x) = e^x + x -4\)</span>.</p>
+<p>From here we see that <span class="math inline">\(f&#39;(x) = e^x + 1\)</span>, so Newton’s formula gives</p>
+<p><span class="math display">\[
+    x_{n+1} = x_n - \frac{e^{x_n} + x_n - 4}{e^{x_n} + 1}
+\]</span></p>
+<p>Starting with <span class="math inline">\(x_0 = 1\)</span> we iterate to give the following sequence of solutions
+<span class="math display">\[\begin{align*}
+    x_0 &amp;=  1 \\
+    x_1 &amp;= 1.075765686 \\
+    x_2 &amp;= 1.073730483 \\
+    x_3 &amp;= 1.073728983 \\
 \end{align*}\]</span></p>
-<p>Similarly, <span class="math display">\[\int_0^1 1+x^2+\frac{x^4}{2}-\frac{x^6}{2}dx \leq \int_0^1 e^{x^2}dx \implies \frac{143}{105}\approx 1.361 \leq \int_0^1 e^{x^2}dx\]</span></p>
-<p>We can therefore conclude that <span class="math display">\[1.361 \leq \int_0^1 e^{x^2}dx \leq 1.505\]</span></p>
+<p>We see that solutions 3 and 4 round to the same thousandth and therefore our solution (to 3 decimal places) is
+<span class="math display">\[
+    x = 1.074
+\]</span></p>
+</div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-168" class="exercise"><strong>Exercise 24.2  </strong></span>Estimate <span class="math inline">\(\displaystyle \int_0^{2/3}x\sin(x^3)dx\)</span> using the tenth degree Maclaurin polynomial for <span class="math inline">\(x\sin(x^3)\)</span>. You may use the fact that <span class="math inline">\(P_{3,0}(x)=x-\frac{x^3}{3}+R_3(x)\)</span> for <span class="math inline">\(f(x)=\sin(x)\)</span>.</p>
+<p><span id="exr:unlabeled-div-269" class="exercise"><strong>Exercise 35.2  </strong></span>Use <span class="math inline">\(x_0 = 0.75\)</span> as a starting point to find the rightmost solution to the equation <span class="math inline">\(e^{-x^2}=x^2\)</span>, correct to 4 decimal places.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-169" class="solution"><em>Solution</em>. </span>We know that <span class="math inline">\(f(x)=x-\frac{x^3}{3}+R_3(x)\)</span> and therefore for <span class="math inline">\(g(x)=x\cdot sin(x^3)\)</span> we have <span class="math inline">\(g(x)=x\cdot f(x^3)=x\cdot \left (x^3-\frac{x^9}{6}+R_3(x^3)\right) = x^4-\frac{x^{10}}{6}+xR_3(x^3)\)</span></p>
-<p>Now, let’s work on the remainder. On the interval <span class="math inline">\(x\in [0, 2/3]\)</span>, we have <span class="math inline">\(x^3 \in [0, 8/27]\)</span> <span class="math inline">\(|\sin(x)^{(4)}|=|\sin(x)|\leq 8/27\leq 1\)</span>. And so <span class="math display">\[|R_3(x)|\leq \frac{1\cdot |x-0|^4}{4!}=\frac{x^4}{4!}\]</span></p>
-<p>From here, we can find <span class="math display">\[|xR_3(x^3)| \leq x\cdot \frac{(x^4)^3}{4!} = \frac{|x|^{13}}{48}\]</span> since we are on an interval with <span class="math inline">\(x &gt;0\)</span>, we can drop the absolute values on the numerator to get <span class="math inline">\(\displaystyle |xR_3(x^3)| \leq \frac{x^{13}}{48}\)</span></p>
-<p>Putting everything together, we have</p>
-<p><span class="math display">\[\begin{align*}
-\int_0^{2/3}x\sin(x^3)dx &amp;= \int_0^{2/3} x^4-\frac{x^{10}}{6}+xR_3(x^3) dx \\
-&amp;= \int_0^{2/3} x^4-\frac{x^{10}}{6}+\frac{x^{13}}{48}\\
-&amp; \approx 0.02616228 + 0.0000051\\
-&amp;= 0.02616738
+<p><span id="unlabeled-div-270" class="solution"><em>Solution</em>. </span>Using Newton’s Method, we have
+<span class="math display">\[x_{n+1}=x_n-\frac{f(x_n)}{f&#39;(x_n)}\]</span>
+<span class="math display">\[f(x)=e^{-x^2}-x^2 \Rightarrow f&#39;(x)=-2xe^{-x^2}-2x\]</span>
+So
+<span class="math display">\[\displaystyle x_{n+1}=x_n-\frac{e^{-x_n^2}-x_n^2}{-2x_ne^{-x_n^2}-2x_n}=x_n+\frac{e^{-x_n^2}-x_n^2}{2x_ne^{-x_n^2}+2x_n}\]</span>
+With <span class="math inline">\(x_0=0.75\)</span>, we get
+<span class="math display">\[\begin{align*}
+x_0 &amp;= 0.75\\
+x_1 &amp; =0.75-\frac{f(0.75)}{f&#39;(0.75)}=0.75+\frac{e^{-(0.75^2)}-0.75^2}{1.5e^{-(0.75^2)}+1.5}=0.7530929224...\\
+x_2 &amp; =0.753089165...
 \end{align*}\]</span></p>
+<p>Thus, we have that <span class="math inline">\(x=0.7531\)</span> after 2 iterations.</p>
+</div>
+<div class="exercise">
+<ol style="list-style-type: decimal">
+<li></li>
+<li>Find the third degree Taylor polynomial of <span class="math inline">\(\sqrt[3]{x}\)</span> centered at <span class="math inline">\(x=1\)</span> (i.e. <span class="math inline">\(P_{3,1}(x)\)</span>)</li>
+<li>Use Taylor’s inequality to find an upper bound on the error in using <span class="math inline">\(P_{3,1}(x)\)</span> to approximate <span class="math inline">\(\sqrt[3]{2}\)</span></li>
+<li>Verify that the actual error (by computing <span class="math inline">\(\sqrt[3]{2}\)</span> directly) is less than the upper bound you found in part (2).</li>
+</ol>
+</div>
+<div class="solution">
+<ol style="list-style-type: decimal">
+<li></li>
+<li>Finding the derivatives and evaluating at <span class="math inline">\(x_0=1\)</span> we get
+<span class="math display">\[\begin{align*}
+ f(x)=\sqrt[3]{x} &amp; \quad  f(1)=1\\
+ f&#39;(x)=\frac{1}{3}x^{-\frac{2}{3}} &amp;  \quad  f&#39;(1)= \frac{1}{3}\\
+ f&#39;&#39;(x)=-\frac{2}{9}x^{-\frac{5}{3}} &amp;  \quad  f&#39;&#39;(1)= -\frac{2}{9}\\
+ f&#39;&#39;&#39;(x)=\frac{10}{27}x^{-\frac{8}{3}} &amp;  \quad  f&#39;&#39;&#39;(1)= \frac{10}{27}
+\end{align*}\]</span></li>
+</ol>
+<p>Entering these values into the our Taylor polynomial formula we get
+<span class="math display">\[P_{3,1}(x)=1+\frac{1}{3}(x-1)+\frac{-2}{9}\frac{(x-1)^2}{2!}+\frac{10}{27}\frac{(x-1)^3}{3!}\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Taking the <span class="math inline">\(4^{th}\)</span> derivative of <span class="math inline">\(f(x)=\sqrt[3]{x}\)</span> we get
+<span class="math display">\[ f^{(4)}(x)=\frac{-80}{81}x^{\frac{-11}{3}}\]</span></li>
+</ol>
+<p>Now for <span class="math inline">\(t\in [1,2]\)</span> we have that
+<span class="math display">\[|f^{(4)}(t)|=\left|\frac{-80}{81x^{\frac{11}{3}}}\right|\leq \frac{80}{81}\]</span></p>
+<p>Taylor’s Inequality gives
+<span class="math display">\[|R_{3,1}(x)|\leq \frac{80}{81}\frac{|x-1|^4}{4!}\Rightarrow|R_{3,1}(2)|\leq \frac{80}{81}\frac{|2-1|^4}{4!}=\frac{10}{243}=0.04115226337449...\]</span></p>
+<p>This gives that the error of the approximation of <span class="math inline">\(\sqrt[3]{2}\)</span> by <span class="math inline">\(P_{3,1}(2)\)</span> is bounded by <span class="math inline">\(\displaystyle\frac{10}{243}\)</span>.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Using a calculator we find that <span class="math inline">\(\sqrt[3]{2}=1.25992104989487...\)</span></li>
+</ol>
+<p>Additionally, we have that <span class="math inline">\(\displaystyle P_{3,1}(2)=1+\frac{1}{3}-\frac{1}{9}+\frac{10}{3!27}=\frac{104}{81}\)</span>.</p>
+<p>So then our error is given by
+<span class="math display">\[
+\mbox{Error}=\left|\sqrt[3]{2}-\frac{104}{81}\right|=0.02402956738908
+\]</span>
+and we see that this is, indeed, less than our error bound found in (2).</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-273" class="exercise"><strong>Exercise 35.3  </strong></span>Approximate the value of <span class="math inline">\(\int_0^1 \sin(2t^3)dt\)</span> by using the Maclaurin polynomial of degree <span class="math inline">\(10\)</span> of the function
+<span class="math display">\[
+    f(x) = \int_0^x \sin(2t^3) dt.
+\]</span>
+Calculate an upper bound on the error in your approximation.</p>
+</div>
+<div class="solution">
+<p><span id="unlabeled-div-274" class="solution"><em>Solution</em>. </span>First we will find a polynomial for g(u)=sin<span class="math inline">\((u)\)</span> where <span class="math inline">\(u\in [0,2]\)</span> and then do a substitution <span class="math inline">\(u\rightarrow 2t^3\)</span>.</p>
+<p>Taking the derivatives and evaluating at <span class="math inline">\(u_0=0\)</span> (since we are to use a Maclaurin polynomial) we get</p>
+<p><span class="math display">\[\begin{align*}
+g(u)=\sin (u) &amp; \quad g(0)=0\\
+g&#39;(u)=\cos (u) &amp; \quad g&#39;(0)= 1\\
+g&#39;&#39;(u)=-\sin (u) &amp; \quad g&#39;&#39;(0)=0\\
+g&#39;&#39;&#39;(u)=-\cos (u) &amp; \quad g&#39;&#39;&#39;(0)=-1
+\end{align*}\]</span></p>
+<p>From this we get that
+<span class="math display">\[ \sin (u)\approx P_{3,0}(u)=u-\frac{u^3}{3!}\]</span></p>
+<p>We notice that <span class="math inline">\(g^{(4)}(0)=0\)</span> so, in fact, <span class="math inline">\(P_{3,0}(u)=P_{4,0}(u)\)</span>. Taking another derivative we get
+<span class="math display">\[g^{(5)}(u)=\cos (u)\]</span>
+Since <span class="math inline">\(\cos(u)\leq 1\)</span>, Taylor’s Inequality gives
+<span class="math display">\[|R_{4,0}(u)|\leq \frac{|u|^5}{5!}\]</span></p>
+<p>Now the substitution for <span class="math inline">\(2t^3\)</span> gives
+<span class="math display">\[\sin (2t^3)=2t^3-\frac{(2t^3)^3}{3!}+R_{4,0}(2t^3) \ \mathrm{for} \ t\in[0,1]\]</span>
+Given the substitution, the error bound is now
+<span class="math display">\[|R_{4,0}(2t^3)|\leq \frac{|2t^3|^5}{5!}=\frac{32t^{15}}{5!}\]</span>
+Now integrating from <span class="math inline">\(0\)</span> to <span class="math inline">\(x\)</span> we get</p>
+<p><span class="math display">\[\begin{align*}
+f(x)=\int^x_0\sin (2t^3)dt\\
+&amp;=\int^x_0(2t^3-\frac{8t^9}{3!}+R_{4,0}(2t^3))dt\\
+&amp;=\frac{x^4}{2}-\frac{8x^{10}}{3!10}+\int^x_0R_{4,0}(2t^3)dt\\
+&amp;=\frac{x^4}{2}-\frac{2x^{10}}{15}+\int^x_0R_{4,0}(2t^3)dt
+\end{align*}\]</span></p>
+<p>Since <span class="math inline">\(|R_{4,0}(2t^3)|\leq \frac{32t^{15}}{5!}\)</span> we have that the error bound for the above polynomial is given by
+<span class="math display">\[\left|\int^x_0R_{4,0}(2t^3)dt\right|\leq \int^x_0|R_{4,0}(2t^3)|dt \leq \int^x_0 \frac{32t^{15}}{5!}dt=\frac{32x^{16}}{5!16}=\frac{x^{16}}{60}\]</span></p>
+<p>Setting <span class="math inline">\(x=1\)</span> we have that
+<span class="math display">\[\int^1_0\sin (2t^3)dt \approx \frac{1}{2}-\frac{2}{15}=\frac{11}{30}=0.3\overline{6}\]</span>
+with an error bound of
+<span class="math display">\[\left|\int^x_0R_{4,0}(2t^3)dt\right|\leq \frac{1}{60}\]</span></p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-275" class="exercise"><strong>Exercise 35.4  </strong></span>Let <span class="math inline">\(T_n(x)\)</span> be the Taylor polynomial of degree up to <span class="math inline">\(n\)</span> for <span class="math inline">\(y=\sin{x}\)</span> expanded about 0. Find an <span class="math inline">\(n\)</span> such that <span class="math inline">\(|\sin(0.1)-T_n(0.1)| \le 10^{-6}\)</span>, and show that your <span class="math inline">\(n\)</span> works.</p>
+</div>
+<div class="solution">
+<p><span id="unlabeled-div-276" class="solution"><em>Solution</em>. </span>Let <span class="math inline">\(\displaystyle f(x)=\sin{x}\)</span>. Then all derivatives of <span class="math inline">\(f(x)\)</span> are <span class="math inline">\(\pm \sin x\)</span> and <span class="math inline">\(\pm \cos x\)</span>, and therefore <span class="math inline">\(|f^{(n)}(x)| \leq 1 = M\)</span> for all <span class="math inline">\(n\)</span>. Using Taylor’s inequality:</p>
+<p><span class="math display">\[
+    |\sin x - T_n(x)| \le \frac{M}{(n+1)!}|x|^{(n+1)} \quad \Longrightarrow |\sin(0.1)-T_n(0.1)| \le \frac{1}{10^{n+1}(n+1)!}
+\]</span></p>
+<p>We require <span class="math inline">\(n\)</span> such that <span class="math inline">\(\displaystyle \frac{1}{10^{n+1}(n+1)!} \le 10^{-6}\)</span> or <span class="math inline">\(10^{n+1}(n+1)!&gt;10^6\)</span>.</p>
+<p>Choose <span class="math inline">\(n=4\)</span>. Then <span class="math inline">\(10^5(5!)=1.2\times10^7&gt;10^6\)</span>.</p>
+<p>Therefore if we take <span class="math inline">\(\displaystyle T_4\left(\frac{1}{10}\right)=\frac{1}{10}-\frac{1}{10^3\cdot3!}=\frac{599}{6000}\)</span>, we will have <span class="math inline">\(|\sin(0.1)-T_n(0.1)| \le 10^{-6}\)</span>.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-277" class="exercise"><strong>Exercise 35.5  </strong></span>When we already know the Taylor expansion of a function it is often easier to use tricks to find a Taylor polynomial of a similar function.</p>
+<ol style="list-style-type: decimal">
+<li>Find the fifth degree Maclaurin polynomial (i.e. <span class="math inline">\(P_{5,0}(x)\)</span>) of the function <span class="math inline">\(f(x)=\sin(x)\)</span></li>
+<li>By differentiating <span class="math inline">\(P_{5,0}(x)\)</span>, verify that it is equivalent to <span class="math inline">\(P_{4,0}(x)\)</span> of <span class="math inline">\(\cos(x)\)</span>.</li>
+<li>By substituting <span class="math inline">\(x \rightarrow 2x\)</span> into <span class="math inline">\(P_{5,0}(x)\)</span> show that it is equivalent to <span class="math inline">\(P_{5,0}(x)\)</span> of <span class="math inline">\(\sin(2x)\)</span>.</li>
+<li>By multiplying by <span class="math inline">\(x\)</span> show that it is equivalent to <span class="math inline">\(P_{6,0}(x)\)</span> of <span class="math inline">\(x\sin(x)\)</span>.
+You should compute the appropriate Taylor polynomials of <span class="math inline">\(\cos(x), \sin(2x)\)</span> and <span class="math inline">\(x\sin(x)\)</span> directly to compare.</li>
+</ol>
+</div>
+<div class="solution">
+<ol style="list-style-type: decimal">
+<li></li>
+<li>Finding the derivatives and evaluating at <span class="math inline">\(x_0=0\)</span> we get</li>
+</ol>
+<p><span class="math display">\[\begin{align*} 
+f(x)=\sin x &amp; \quad f(0)=0\\
+f&#39;(x)=\cos x &amp; \quad f&#39;(0)= 1\\
+ f&#39;&#39;(x)=-\sin x &amp; \quad f&#39;&#39;(0)=0\\
+ f&#39;&#39;&#39;(x)=-\cos x &amp; \quad f&#39;&#39;&#39;(0)=-1\\
+ f^{(4)}(x)=\sin x &amp; \quad f^{(4)}(0)=0\\
+ f^{(5)}(x)=\cos x &amp; \quad f^{(5)}(0)=1
+\end{align*}\]</span></p>
+<p>Entering these values into the equation of a Maclaurin polynomial we get
+<span class="math display">\[P_{5,0}(x)=x-\frac{x^3}{3!}+\frac{x^5}{5!}\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>We know that for values of <span class="math inline">\(x\)</span> near <span class="math inline">\(0\)</span>, <span class="math inline">\(P_{5,0}(x)\approx \sin x\)</span>. So then differentiation of <span class="math inline">\(P_{5,0}(x)\)</span> suggests that
+<span class="math display">\[\cos x\approx1-\frac{x^2}{2!}+\frac{x^4}{4!}\]</span></li>
+</ol>
+<p>To verify that the above approximation does, indeed, hold we find <span class="math inline">\(P_{4,0}(x)\)</span> of cos<span class="math inline">\(x\)</span>.
+<span class="math display">\[\begin{align*} 
+f(x)=\cos x &amp; \quad f(0)=1\\
+f&#39;(x)=-\sin x &amp; \quad f&#39;(0)= 0\\
+ f&#39;&#39;(x)=-\cos x &amp; \quad f&#39;&#39;(0)=-1\\
+ f&#39;&#39;&#39;(x)=\sin x &amp; \quad f&#39;&#39;&#39;(0)=0\\
+ f^{(4)}(x)=\cos x &amp; \quad f^{(4)}(0)=1
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\displaystyle \Rightarrow P_{4,0}(x)=1-\frac{x^2}{2!}+\frac{x^4}{4!}\)</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Substituting doing the substitution <span class="math inline">\(x\rightarrow 2x\)</span> into <span class="math inline">\(P_{5,0}(x)\)</span> from <span class="math inline">\((1)\)</span> suggests
+<span class="math display">\[\sin(2x)\approx 2x-\frac{(2x)^3}{3!}+\frac{(2x)^5}{5!}=2x-\frac{8x^3}{3!}+\frac{32x^5}{5!}\]</span></li>
+</ol>
+<p>To verify that this does, indeed, hold we find <span class="math inline">\(P_{5,0}(x)\)</span> of sin<span class="math inline">\((2x)\)</span>.
+<span class="math display">\[\begin{align*} 
+ f(x)=\sin (2x) &amp; \quad f(0)=0\\
+ f&#39;(x)=2\cos (2x) &amp; \quad f&#39;(0)= 2\\
+ f&#39;&#39;(x)=-4\sin (2x) &amp; \quad f&#39;&#39;(0)=0\\
+ f&#39;&#39;&#39;(x)=-8\cos (2x) &amp; \quad f&#39;&#39;&#39;(0)=-8\\
+ f^{(4)}(x)=16\sin (2x) &amp; \quad f^{(4)}(0)=0\\
+f^{(5)}(x)=32\cos (2x) &amp; \quad f^{(5)}(0)=32
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\displaystyle\Rightarrow P_{5,0}(x)=2x-\frac{8x^3}{3!}+\frac{32x^5}{5!}\)</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Multiplying <span class="math inline">\(P_{5,0}(x)\)</span> from <span class="math inline">\((1)\)</span> by <span class="math inline">\(x\)</span> suggests that
+<span class="math display">\[x\sin x\approx x^2-\frac{x^4}{3!}+\frac{x^6}{5!}\]</span></li>
+</ol>
+<p>To verify that this holds, we find <span class="math inline">\(P_{6,0}(x)\)</span> of <span class="math inline">\(x\sin x\)</span>.
+<span class="math display">\[\begin{align*} 
+ f(x)=x\sin x &amp; \quad f(0)=0\\
+ f&#39;(x)=\sin x +x\cos x &amp; \quad f&#39;(0)=0\\
+ f&#39;&#39;(x)=2\cos x-x\sin x &amp; \quad f&#39;&#39;(0)=2\\
+ f&#39;&#39;&#39;(x)=-3\sin x-x\cos x &amp; \quad f&#39;&#39;&#39;(0)=0\\
+ f^{(4)}(x)=-4\cos x+x\sin x &amp; \quad f^{(4)}(0)=-4\\
+ f^{(5)}(x)=5\sin x+x\cos x &amp; \quad f^{(5)}(0)=0\\
+ f^{(6)}(x)=6\mathrm{cosx}-x\sin x&amp; \quad f^{(6)}(0)=6
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\displaystyle\Rightarrow P_{6,0}(x)=x^2-\frac{x^4}{3!}+\frac{x^6}{5!}\)</span></p>
 </div>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="lec-23.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="lec-25.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lec-34.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lec-36.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

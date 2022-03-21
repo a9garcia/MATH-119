@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture 24 Approximation of Integrals using Taylor Polynomials | MATH 119 Course Notes</title>
-  <meta name="description" content="Lecture 24 Approximation of Integrals using Taylor Polynomials | MATH 119 Course Notes" />
+  <title>Lecture 36 Review 2 | MATH 119 Course Notes</title>
+  <meta name="description" content="Lecture 36 Review 2 | MATH 119 Course Notes" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture 24 Approximation of Integrals using Taylor Polynomials | MATH 119 Course Notes" />
+  <meta property="og:title" content="Lecture 36 Review 2 | MATH 119 Course Notes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture 24 Approximation of Integrals using Taylor Polynomials | MATH 119 Course Notes" />
+  <meta name="twitter:title" content="Lecture 36 Review 2 | MATH 119 Course Notes" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="lec-23.html"/>
-<link rel="next" href="lec-25.html"/>
+<link rel="prev" href="lec-35.html"/>
+
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -355,70 +355,194 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lec-24" class="section level1" number="24">
-<h1><span class="header-section-number">Lecture 24</span> Approximation of Integrals using Taylor Polynomials</h1>
-<p>Text References: Course notes pp. 111-114 &amp; Rogawski 10.7</p>
-<div id="recap-22" class="section level2" number="24.1">
-<h2><span class="header-section-number">24.1</span> Recap</h2>
-<p>Last time, we found a way to estimate the error bound of a Taylor polynomial.</p>
+<div id="lec-36" class="section level1" number="36">
+<h1><span class="header-section-number">Lecture 36</span> Review 2</h1>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-166" class="exercise"><strong>Exercise 24.1  </strong></span>Find the error bound for the third order Taylor polynomial of <span class="math inline">\(f(x)=\ln(x)\)</span> for centred at <span class="math inline">\(1\)</span> and evaluated at <span class="math inline">\(x=1.2\)</span>.</p>
+<p><span id="exr:unlabeled-div-279" class="exercise"><strong>Exercise 36.1  </strong></span>Determine if the following series converge or diverge. In the case of a convergent series, find the sum of the series.</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\sum_{n=0}^{\infty} \frac{\cos{(\pi n)}}{(\sin{\left(\frac{\pi}{3}\right)})^n}\)</span></li>
+<li><span class="math inline">\(\displaystyle \sum_{n=0}^{\infty} \frac{3^{n+1}+2^{2n}}{7^n}\)</span></li>
+</ol>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-167" class="solution"><em>Solution</em>. </span>First, we need to find a value of <span class="math inline">\(K\)</span> such that <span class="math inline">\(|f^{(4)}(x)|\leq K\)</span> for values of <span class="math inline">\(x\)</span> between <span class="math inline">\(1\)</span> and <span class="math inline">\(1.2\)</span>. We have <span class="math inline">\(f^{(4)}(x)=-6x^{-4}\)</span> and so <span class="math inline">\(|f^{(4)}(x)|\)</span> is decreasing on the interval <span class="math inline">\([1, 1.2]\)</span>. The maximum value on that interval is at <span class="math inline">\(x=1\)</span>, and so <span class="math inline">\(|f^{(4)}(x)|\leq f^{(4)}(1)=6\)</span>. We therefore set <span class="math inline">\(K\)</span>.</p>
-<p>Applying Taylor’s Inequality, we have <span class="math inline">\(\displaystyle |R_3(1.2)|\leq 6 \frac{|1.2-1|^4}{4!}\approx 0.0004\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li></li>
+<li><p>We can re-write the series as <span class="math display">\[\sum_{n=0}^{\infty} \frac{\cos{(\pi n)}}{(\sin{\left(\frac{\pi}{3}\right)})^n}=\sum_{n=0}^{\infty}(-1)^n\left(\frac{2}{\sqrt{3}}\right)^n\]</span>
+We get then that <span class="math inline">\(\displaystyle r= \frac{-2}{\sqrt{3}}\)</span> and so, <span class="math inline">\(|r|&gt;1\)</span> which gives that this geometric series diverges.</p></li>
+<li><p>We can re-write the series as <span class="math display">\[ \sum_{n=0}^{\infty} \frac{3^{n+1}+2^{2n}}{7^n}=\sum_{n=0}^{\infty}\left( 3\left(\frac{3}{7}\right)^n+\left(\frac{4}{7}\right)^n\right)\]</span>
+We have that the series <span class="math display">\[\sum_{n=0}^{\infty}3\left(\frac{3}{7}\right)^n\]</span>
+converges since <span class="math inline">\(\displaystyle \frac{3}{7} &lt;1\)</span>. The sum is <span class="math display">\[\sum_{n=0}^{\infty}3\left(\frac{3}{7}\right)^n=\frac{3}{1-\frac{3}{7}}=\frac{21}{4}\]</span>
+We also have the series <span class="math display">\[\sum_{n=0}^{\infty}\left(\frac{4}{7}\right)^n\]</span> converges since <span class="math inline">\(\displaystyle \frac{4}{7}&lt;1\)</span>. The sum is <span class="math display">\[\sum_{n=0}^{\infty}\left(\frac{4}{7}\right)^n=\frac{1}{1-\frac{4}{7}}=\frac{7}{3}\]</span>
+From this we get that <span class="math inline">\(\displaystyle \sum_{n=0}^{\infty}\left( 3\left(\frac{3}{7}\right)^n+\left(\frac{4}{7}\right)^n\right)\)</span> converges and the sum is <span class="math display">\[\sum_{n=0}^{\infty} \frac{3^{n+1}+2^{2n}}{7^n}=\frac{21}{4}+\frac{7}{3}=\frac{91}{12}\]</span></p></li>
+</ol>
 </div>
-</div>
-<div id="learning-objectives-23" class="section level2" number="24.2">
-<h2><span class="header-section-number">24.2</span> Learning Objectives</h2>
-<ul>
-<li>Use Taylor polynomials to approximate integrals.</li>
-</ul>
-</div>
-<div id="motivation-1" class="section level2" number="24.3">
-<h2><span class="header-section-number">24.3</span> Motivation</h2>
-<p>Now that we’ve developed a nice and robust theory of Taylor polynomials, it’s time to put it to use. One particularly useful application is in approximating integrals for which there is no tidy antiderivative.</p>
-<p>Let’s work with a motivating example. Suppose that we want to estimate <span class="math inline">\(\displaystyle \int_0^1 e^{x^2}dx\)</span>. Our approach will be to replace <span class="math inline">\(e^{x^2}\)</span> with a function that is close to <span class="math inline">\(e^{x^2}\)</span> but is much easier to integrate. The Taylor polynomial of <span class="math inline">\(e^{x^2}\)</span> is an excellent candidate: we know that it gives a good approximation of the function and polynomials are much easier to integrate.</p>
-</div>
-<div id="approximating-integrals-using-polynomials" class="section level2" number="24.4">
-<h2><span class="header-section-number">24.4</span> Approximating Integrals using Polynomials</h2>
-<p>Let’s take the second order Maclaurin polynomial of <span class="math inline">\(e^x\)</span> and use it to find the second order Maclaurin polynomial of <span class="math inline">\(e^{x^2}\)</span>. We have <span class="math inline">\(P_{0,2}(x)=1+x+\frac{x^2}{2!}+R_2(x)\)</span> and so <span class="math inline">\(P_{0,2}(x^2)=1+x^2+\frac{x^4}{2!}+R_2(x^2)\)</span></p>
-<p>Now, we have to deal with those remainders–simply throwing them away with throw off the accuracy of our approximation.</p>
-<p>Recall that <span class="math inline">\(\displaystyle |R_2(x)|\leq \frac{K|x-0|^3}{3!}\)</span>. We are working on the interval <span class="math inline">\([0,1]\)</span> and so the third derivative of <span class="math inline">\(e^x\)</span> is bounded above by <span class="math inline">\(e\)</span>. We can therefore set <span class="math inline">\(K=e\)</span> to get <span class="math inline">\(\displaystyle |R_2(x)|\leq \frac{e|x|^3}{3!}\leq \frac{3|x|^3}{3!} = \frac{|x|^3}{2}\)</span>. Note that here, we rounded <span class="math inline">\(e\)</span> up to <span class="math inline">\(3\)</span> to get some nice cancellations.</p>
-<p>Given that <span class="math inline">\(\displaystyle |R_2(x)|\leq\frac{|x|^3}{2}\)</span> this means that <span class="math inline">\(\displaystyle |R_2(x^2)|\leq\frac{|x^2|^3}{2}=\frac{x^6}{2}\)</span>. That is, <span class="math display">\[1+x^2+\frac{x^4}{2}-\frac{x^6}{2}\leq e^{x^2}\leq 1+x^2+\frac{x^4}{2}+\frac{x^6}{2}\]</span></p>
-<p>Now that we have all of the pieces in place, we can get back to the integral:</p>
-<p><span class="math display">\[\begin{align*}
- \int_0^1 e^{x^2}dx &amp; \leq \int_0^1 1+x^2+\frac{x^4}{2!}+R_2(x^2) dx \\
-&amp;= \int_0^1 1+x^2+\frac{x^4}{2!}+\frac{x^6}{2} dx\\
-&amp;= \frac{158}{105} \approx 1.505\\
-\end{align*}\]</span></p>
-<p>Similarly, <span class="math display">\[\int_0^1 1+x^2+\frac{x^4}{2}-\frac{x^6}{2}dx \leq \int_0^1 e^{x^2}dx \implies \frac{143}{105}\approx 1.361 \leq \int_0^1 e^{x^2}dx\]</span></p>
-<p>We can therefore conclude that <span class="math display">\[1.361 \leq \int_0^1 e^{x^2}dx \leq 1.505\]</span></p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-168" class="exercise"><strong>Exercise 24.2  </strong></span>Estimate <span class="math inline">\(\displaystyle \int_0^{2/3}x\sin(x^3)dx\)</span> using the tenth degree Maclaurin polynomial for <span class="math inline">\(x\sin(x^3)\)</span>. You may use the fact that <span class="math inline">\(P_{3,0}(x)=x-\frac{x^3}{3}+R_3(x)\)</span> for <span class="math inline">\(f(x)=\sin(x)\)</span>.</p>
+<p><span id="exr:unlabeled-div-281" class="exercise"><strong>Exercise 36.2  </strong></span>Test the following series for convergence by making a suitable comparison.</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\sum_{n=1}^{\infty} \frac{\sqrt{n}}{n^2+2n+2}\)</span></li>
+<li><span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \sin\bigg(\frac{1}{n}\bigg)\)</span></li>
+<li><span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{3^{1/n}}{n^3}\)</span></li>
+<li><span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{\arctan n}{n}\)</span></li>
+<li><span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{n!}{n^n}\)</span></li>
+</ol>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-169" class="solution"><em>Solution</em>. </span>We know that <span class="math inline">\(f(x)=x-\frac{x^3}{3}+R_3(x)\)</span> and therefore for <span class="math inline">\(g(x)=x\cdot sin(x^3)\)</span> we have <span class="math inline">\(g(x)=x\cdot f(x^3)=x\cdot \left (x^3-\frac{x^9}{6}+R_3(x^3)\right) = x^4-\frac{x^{10}}{6}+xR_3(x^3)\)</span></p>
-<p>Now, let’s work on the remainder. On the interval <span class="math inline">\(x\in [0, 2/3]\)</span>, we have <span class="math inline">\(x^3 \in [0, 8/27]\)</span> <span class="math inline">\(|\sin(x)^{(4)}|=|\sin(x)|\leq 8/27\leq 1\)</span>. And so <span class="math display">\[|R_3(x)|\leq \frac{1\cdot |x-0|^4}{4!}=\frac{x^4}{4!}\]</span></p>
-<p>From here, we can find <span class="math display">\[|xR_3(x^3)| \leq x\cdot \frac{(x^4)^3}{4!} = \frac{|x|^{13}}{48}\]</span> since we are on an interval with <span class="math inline">\(x &gt;0\)</span>, we can drop the absolute values on the numerator to get <span class="math inline">\(\displaystyle |xR_3(x^3)| \leq \frac{x^{13}}{48}\)</span></p>
-<p>Putting everything together, we have</p>
-<p><span class="math display">\[\begin{align*}
-\int_0^{2/3}x\sin(x^3)dx &amp;= \int_0^{2/3} x^4-\frac{x^{10}}{6}+xR_3(x^3) dx \\
-&amp;= \int_0^{2/3} x^4-\frac{x^{10}}{6}+\frac{x^{13}}{48}\\
-&amp; \approx 0.02616228 + 0.0000051\\
-&amp;= 0.02616738
-\end{align*}\]</span></p>
+<ol style="list-style-type: decimal">
+<li></li>
+<li>For positive <span class="math inline">\(n\)</span>, <span class="math inline">\(n^2 + 2n + 2 &gt; n^2\)</span>, so:</li>
+</ol>
+<p><span class="math display">\[ 
+    \frac{\sqrt{n}}{n^2 + 2n + 2} &lt; \frac{\sqrt{n}}{n^2} = \frac{1}{n^{3/2}}
+\]</span></p>
+<p>and <span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^{3/2}}\)</span> converges (p-series test), so by the comparison test <span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{\sqrt{n}}{n^2+2n+2}\)</span> also converges.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>For small values of the argument, <span class="math inline">\(\sin(z) \approx z\)</span>. Formally, <span class="math inline">\(\displaystyle \lim_{z \to 0} \frac{\sin(z)}{z} = 1\)</span>. Letting <span class="math inline">\(z = \frac{1}{n}\)</span>, <span class="math inline">\(z \to 0 = n \to \infty\)</span>, so</li>
+</ol>
+<p><span class="math display">\[
+    \lim_{n \to \infty} \frac{\sin\left(\frac{1}{n}\right)}{ \frac{1}{n}} = 1
+\]</span></p>
+<p>and <span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{1}{n}\)</span> diverges, so by the limit comparison test, <span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \sin \bigg(\frac{1}{n} \bigg)\)</span> diverges.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><span class="math inline">\(\displaystyle \lim_{n \to \infty} \frac{ \frac{3^{1/n}}{n^3}}{\frac{1}{n^3}} = \lim_{n \to \infty} 3^{1/n} = 1\)</span>, and <span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^3}\)</span> converges, so by the limit comparison test <span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{3^{1/n}}{n^3}\)</span> converges</li>
+</ol>
+<p><span class="math inline">\(3^{1/n} &lt; 3\)</span>, so <span class="math inline">\(\displaystyle \frac{3^{1/n}}{n^3} &lt; \frac{3}{n^3}\)</span>, and <span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{3}{n^3}\)</span> converges, so by the comparison test} <span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{3^{1/n}}{n^3}\)</span> converges</p>
+<ol start="4" style="list-style-type: decimal">
+<li><p><span class="math inline">\(\displaystyle \lim_{n \to \infty} \frac{ \frac{\arctan n}{n}}{\frac{1}{n}} = \lim_{n \to \infty} \arctan{n} = \frac{\pi}{2}\)</span>, and <span class="math inline">\(\displaystyle \sum_{n=1}^{\infty}{1} \frac{1}{n}\)</span> diverges, so by the limit comparison test <span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{\arctan n}{n}\)</span> diverges.</p></li>
+<li><p><span class="math display">\[ 
+ \frac{n!}{n^n} = \frac{1}{n} \cdot \frac{2}{n}  \cdot \frac{3}{n} \cdots \frac{n-1}{n} \cdot \frac{n}{n}
+\]</span></p></li>
+</ol>
+<p>Each of these terms is less than or equal to 1, so <span class="math inline">\(\dfrac{n!}{n^n} \leq \dfrac{1}{n} \cdot \dfrac{2}{n} = \dfrac{2}{n^2}\)</span>, provided <span class="math inline">\(n \geq 2\)</span>, so since <span class="math inline">\(\displaystyle \sum_{n=1}^{\infty}{2} \frac{2}{n^2}\)</span> converges, by the comparison test <span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{n!}{n^n}\)</span> converges.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-283" class="exercise"><strong>Exercise 36.3  </strong></span>Find the radius and interval of convergence of</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\displaystyle \sum_{n=1}^{\infty}\frac{8^n}{n}(2x+1)^n\)</span>.</li>
+<li><span class="math inline">\(\displaystyle \sum_{n=0}^{\infty}\frac{n^2}{3^{2n}}(x+2)^n\)</span></li>
+<li><span class="math inline">\(\displaystyle \sum_{n=0}^{\infty}\frac{n+1}{n!}(x-1)^n\)</span>.</li>
+<li><span class="math inline">\(\displaystyle\sum_{n=1}^\infty (-1)^n \frac{(x-3)^n}{2n+1}\)</span></li>
+<li><span class="math inline">\(\displaystyle \sum_{n=1}^\infty \frac{10^n x^n}{n^{10}}\)</span></li>
+</ol>
+</div>
+<div class="solution">
+<ol style="list-style-type: decimal">
+<li></li>
+<li>The ratio test gives
+<span class="math display">\[\begin{align*}
+\lim_{n\to \infty}\Bigg| \frac{8^{n+1}(2x+1)^{n+1}}{n+1}\cdot\frac{n}{8^n(2x+1)^n}\Bigg|&amp;=\lim_{n\to \infty}\Bigg|\frac{n}{n+1}8(2x+1)\Bigg|\\
+&amp;=8\Big|2x+1\Big|
+\end{align*}\]</span>
+To converge we must have that <span class="math inline">\(8\big|2x+1\big|&lt;1\)</span>. That is, we must require that
+<span class="math display">\[\begin{align*}
+\big|2x+1\big|&amp;&lt;\frac{1}{8}\\
+2\Big|x+\frac{1}{2}\Big|&amp;&lt;\frac{1}{8}\\
+\Big|x+\frac{1}{2}\Big|&amp;&lt;\frac{1}{16}
+\end{align*}\]</span>
+We see then that the radius of convergence is <span class="math inline">\(\displaystyle \frac{1}{16}\)</span>. The centre of the series is <span class="math inline">\(\displaystyle x=-\frac{1}{2}\)</span> so the endpoints are <span class="math inline">\(\displaystyle x=-\frac{9}{16}\)</span> and <span class="math inline">\(\displaystyle x=-\frac{7}{16}\)</span>. We now check for convergence at the endpoints.</li>
+</ol>
+<p>At <span class="math inline">\(\displaystyle x=-\frac{9}{16}\)</span>, we get <span class="math display">\[\sum_{n=1}^{\infty}\frac{8^n}{n}\left(\frac{-1}{8}\right)^n=\sum_{n=1}^{\infty}\frac{(-1)^n}{n}\]</span>
+which converges by the alternating series test.</p>
+<p>At <span class="math inline">\(\displaystyle x=-\frac{7}{16}\)</span> we get <span class="math display">\[\sum_{n=1}^{\infty}\frac{8^n}{n}\left(\frac{1}{8}\right)^n=\sum_{n=1}^{\infty}\frac{1}{n}\]</span>
+which diverges since it is the Harmonic series.</p>
+<p>Thus, the interval of convergence is <span class="math inline">\(\displaystyle\left[-\frac{9}{16},-\frac{7}{16} \right)\)</span>.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>The ratio test gives
+<span class="math display">\[\begin{align*}
+\lim_{n\to \infty}\Bigg| \frac{(n+1)^2(x+2)^{n+1}}{3^{2n+2}}\cdot\frac{3^{2n}}{n^2(x+2)^n}\Bigg|&amp;=\lim_{n\to \infty}\Bigg|\frac{(n+1)^2}{9n^2}(x+2)\Bigg|\\
+&amp;=\frac{1}{9}|x+2|
+\end{align*}\]</span>
+To converge we must have that <span class="math inline">\(\displaystyle \frac{1}{9}|x+2|&lt;1\)</span>. That is, we must require that <span class="math inline">\(|x+2|&lt;9\)</span>. We see that the radius of convergence is 9. The centre of the series is <span class="math inline">\(x=-2\)</span> so the endpoints are <span class="math inline">\(x=-11\)</span> and <span class="math inline">\(x=7\)</span>. We now check for convergence at the endpoints.</li>
+</ol>
+<p>At <span class="math inline">\(x=-11\)</span>, we get <span class="math display">\[ \sum_{n=0}^{\infty}\frac{n^2}{3^{2n}}(-9)^n=\sum_{n=0}^{\infty}(-1)^nn^2\]</span>
+which diverges by the divergence test.</p>
+<p>At <span class="math inline">\(x=7\)</span>, we get <span class="math display">\[ \sum_{n=0}^{\infty}\frac{n^2}{3^{2n}}9^n= \sum_{n=0}^{\infty}n^2\]</span>
+which diverges by the divergence test.</p>
+<p>Thus, the interval of convergence is <span class="math inline">\((-11,7)\)</span>.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>The ratio test gives
+<span class="math display">\[\begin{align*}
+\lim_{n\to \infty}\Bigg| \frac{(n+2)(x-1)^{n+1}}{(n+1)!}\cdot \frac{n!}{(n+1)(x-1)^n}\Bigg|&amp;=\lim_{n\to\infty}\Bigg| \frac{n+2}{(n+1)^2}(x-1)\Bigg|\\
+&amp;=\lim_{n\to\infty}\Bigg| \frac{\frac{n}{n^2}+\frac{2}{n^2}}{\frac{n^2}{n^2}+\frac{2n}{n^2}+\frac{1}{n^2}}(x-1)\Bigg|\\
+&amp;=0
+\end{align*}\]</span>
+Thus, the radius of convergence is <span class="math inline">\(\infty\)</span> and the interval of convergence is <span class="math inline">\(\mathbb{R}\)</span>.</p></li>
+<li><p>By the ratio test: <span class="math display">\[ \lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right| =
+\lim_{n\to\infty}\left|\frac{(-1)^{n+1}(x-3)^{n+1}}{2(n+1)+1}\cdot\frac{2n+1}{(-1)^n(x-3)^n}\right| =  |x-3| \]</span></p></li>
+</ol>
+<p>Now, this limit is less than 1 (and hence the series converges) whenever <span class="math inline">\(|x-3|&lt;1\)</span>, and the limit is greater than
+1 (and hence the series diverges) whenever <span class="math inline">\(|x-3|&gt;1\)</span>. The radius of convergence is <span class="math inline">\(1\)</span>. Now test the endpoints
+<span class="math inline">\(x = 1+3=4\)</span> and <span class="math inline">\(x = -1+3 = 2\)</span>.</p>
+<p>If <span class="math inline">\(x = 4\)</span>, then the series becomes <span class="math inline">\(\displaystyle{\sum_{n=1}^\infty (-1)^n \frac{(4-3)^n}{2n+1} = \sum_{n=1}^\infty (-1)^n \frac{1}{2n+1}}\)</span>, which converges by the alternating series test.</p>
+<p>If <span class="math inline">\(x = 2\)</span>, then the series becomes <span class="math inline">\(\displaystyle{\sum_{n=1}^\infty (-1)^n \frac{(2-3)^n}{2n+1} = \sum_{n=1}^\infty (-1)^n \frac{(-1)^n}{2n+1}} = \displaystyle{ \sum_{n=1}^\infty \frac{1}{2n+1}}\)</span>, which
+diverges (this can be proven with a limit comparison with <span class="math inline">\(\frac{1}{n}\)</span>).</p>
+<p>Hence, the radius of convergence is 1, and the interval of convergence is <span class="math inline">\(x\in(2,4]\)</span>.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>By the Ratio Test: <span class="math display">\[ \lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| = \left|\frac{10^{n+1}
+x^{n+1}}{(n+1)^{10}}\cdot \frac{n^{10}}{10^n x^n}\right| = 10 \left(\frac{n}{n+1}\right)^{10} |x| = 10
+\left(\frac{1}{1+1/n}\right)^{10} |x| = 10|x| \]</span></li>
+</ol>
+<p>To converge, this must be less than 1, hence <span class="math inline">\(\displaystyle |x| &lt; \frac{1}{10}\)</span>. Therefore the radius of convergence is
+<span class="math inline">\(\frac{1}{10}\)</span>. Now test the endpoints <span class="math inline">\(\pm \frac{1}{10}\)</span>.</p>
+<p>At <span class="math inline">\(x=\frac{1}{10}\)</span>, the series is <span class="math inline">\(\displaystyle \sum_{n=1}^\infty \frac{10^n (1/10)^n}{n^{10}} = \sum_{n=1}^\infty \frac{1}{n^{10}}\)</span> which
+is a convergent <span class="math inline">\(p\)</span>-series.</p>
+<p>At <span class="math inline">\(x=-\frac{1}{10}\)</span>, the series is <span class="math inline">\(\displaystyle \sum_{n=1}^\infty \frac{10^n (-1/10)^n}{n^{10}} = \sum_{n=1}^\infty \frac{(-1)^n}{n^{10}}\)</span>
+which is convergent by the alternating series test.</p>
+<p>The interval of convergence is therefore <span class="math inline">\(\displaystyle \left[-\frac{1}{10},\frac{1}{10}\right]\)</span>.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-285" class="exercise"><strong>Exercise 36.4  </strong></span>Determine whether the series is absolutely convergent, conditionally convergent, or divergent.</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\displaystyle{\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n^4}}\)</span></li>
+<li><span class="math inline">\(\displaystyle{\sum_{n=1}^\infty \frac{n!}{e^n}}\)</span></li>
+<li><span class="math inline">\(\displaystyle{\sum_{n=1}^\infty(-1)^{n} \frac{n}{\sqrt{n^3+2}}}\)</span></li>
+<li><span class="math inline">\(\displaystyle{\sum_{n=1}^\infty(-1)^{n+1} \frac{n^2 \,2^n}{n!}}\)</span></li>
+<li><span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{\cos(1/n)}{n^2}\)</span></li>
+</ol>
+</div>
+<div class="solution">
+<ol style="list-style-type: decimal">
+<li></li>
+<li><p>We consider the series of absolute values, <span class="math inline">\(\displaystyle{\sum_{n=1}^\infty\frac{1}{n^4}}\)</span>, which clearly converges (<span class="math inline">\(p\)</span>-series with <span class="math inline">\(p=4&gt;1\)</span>). Hence the series <span class="math inline">\(\displaystyle{\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n^4}}\)</span> converges absolutely.</p></li>
+<li><p>We use the ratio test with <span class="math inline">\(a_n = \frac{n!}{e^n}\)</span>. Then</p></li>
+</ol>
+<p><span class="math display">\[\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right| = \lim_{n\to\infty}\frac{(n+1)!}{e^{n+1}  }\cdot
+\frac{e^n}{n!} = \lim_{n\to\infty}\frac{n+1}{e} = \infty.\]</span></p>
+<p>Therefore, by the ratio test, the series diverges.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>To check for absolute convergence, focus on the series of absolute values: <span class="math inline">\(\displaystyle{\sum_{n=1}^\infty \frac{n}{\sqrt{n^3+2}}}\)</span>. We can show this diverges using the limit comparison test, comparing it with <span class="math inline">\(\displaystyle{\sum_{n=1}^\infty \frac{1}{n^{\frac{1}{2}}}}\)</span> (this is a <span class="math inline">\(p\)</span>-series with <span class="math inline">\(p = 1/2 &lt;1\)</span>, and diverges). That is,</li>
+</ol>
+<p><span class="math display">\[
+    \lim_{n\to\infty} \frac{\left(\frac{n}{\sqrt{n^3+2}}\right)}{\left(\frac{1}{\sqrt n} \right)} = \lim_{n\to\infty}\frac{n\sqrt{n}}{\sqrt{n^3+2}} =  \lim_{n\to\infty}\frac{\sqrt{n^3}}{\sqrt{n^3+2}} = \lim_{n\to\infty}\frac{1}{\sqrt{1+2/n^3}} = 1
+\]</span></p>
+<p>Since the limit is a finite, non-zero number, we conclude that <span class="math inline">\(\displaystyle{\sum_{n=1}^\infty \frac{n}{\sqrt{n^3+2}}}\)</span> diverges, so the original alternating series <span class="math inline">\(\displaystyle{\sum_{n=1}^\infty(-1)^{n} \frac{n}{\sqrt{n^3+2}}}\)</span> does not absolutely converge. It remains to check if it converges conditionally.</p>
+<p>Let <span class="math inline">\(b_n = \frac{n}{\sqrt{n^3+2}}\)</span>. We must check the conditions of the alternating series test. Clearly <span class="math inline">\(b_n\)</span> is positive and <span class="math inline">\(\lim_{n\to\infty}b_n = 0\)</span> (since the degree of the denominator is greater than that of the numerator).</p>
+<p>To check if <span class="math inline">\(b_n\)</span> is decreasing, consider the function <span class="math inline">\(f(x) = \frac{x}{\sqrt{x^3+2}}\)</span>. Then</p>
+<p><span class="math display">\[
+    f^\prime(x) = \frac{\sqrt{x^3+2} - x\left(\frac{1}{2\sqrt{x^3+2}}\right)(3x^2)}{x^3+2} = \frac{2(x^3+2) - 3x^3}{2(x^3+2)^{3/2}} = \frac{4-x^3}{2(x^3+2)^{3/2}}
+\]</span></p>
+<p>This derivative is negative for <span class="math inline">\(x&gt;4^{1/3}\)</span>, meaning that the function is decreasing. We can now conclude that <span class="math inline">\(b_n\)</span> is a decreasing sequence for all <span class="math inline">\(n\in\mathbb N\)</span>, <span class="math inline">\(n\ge 2\)</span>. By the alternating series test, <span class="math inline">\(\displaystyle{\sum_{n=1}^\infty(-1)^{n} \frac{n}{\sqrt{n^3+2}}}\)</span> converges.</p>
+<p>Therefore, the series <span class="math inline">\(\displaystyle{\sum_{n=1}^\infty(-1)^{n} \frac{n}{\sqrt{n^3+2}}}\)</span> converges conditionally.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>We apply the ratio test. Here <span class="math inline">\(a_n = (-1)^{n+1}\frac{n^2\, 2^n}{n!}\)</span>, so</li>
+</ol>
+<p><span class="math display">\[
+    \lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right| = \lim_{n\to\infty}\left|\frac{(-1)^{n+2}(n+1)^2\,2^{n+1}\,n!}{(-1)^{n+1}(n+1)!\,n^2\,2^n}\right|  =  \lim_{n\to\infty}\frac{(n+1)^2\,2}{(n+1)\,n^2} = 2\lim_{n\to\infty}\frac{(n+1)}{n^2} = 0.
+\]</span></p>
+<p>Therefore, since this limit is less than 1, by the ratio test, the series converges absolutely.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>The series of absolute values is <span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{|\cos(1/n)|}{n^2}\)</span>. Since <span class="math inline">\(|\cos(1/n)| \le 1\)</span>, then <span class="math inline">\(\frac{|\cos(1/n)|}{n^2} \le \frac{1}{n^2}\)</span>. Since <span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^2}\)</span> is a convergent <span class="math inline">\(p\)</span>-series, then by the Comparison Test, <span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{|\cos(1/n)|}{n^2}\)</span> is convergent also.</li>
+</ol>
+<p>Since the series of absolute values is convergent, then <span class="math inline">\(\displaystyle \sum_{n=1}^{\infty} \frac{\cos(1/n)}{n^2}\)</span> is absolutely convergent.</p>
 </div>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="lec-23.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="lec-25.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lec-35.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
